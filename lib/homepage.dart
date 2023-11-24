@@ -59,7 +59,7 @@ if(form !=null && form.validate())
              
              Padding(
                padding: const EdgeInsets.all(8.0),
-               child: Text("Welcome  $name to VRM ",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 199, 122, 148)),
+               child: Text("Welcome  $name to VRM ",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Color.fromRGBO(199, 122, 148, 1)),
                        
                ),
              ),
@@ -68,8 +68,8 @@ if(form !=null && form.validate())
                child: Container(
                  child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Enter UserName",
-                    labelText: "UserName",
+                    hintText: "Enter Username",
+                    labelText: "Username",
                     icon: Icon(
                       Icons.man,
                     ),

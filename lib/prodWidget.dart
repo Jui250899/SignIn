@@ -79,10 +79,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                    textScaleFactor: 1.5,
                    style: TextStyle(color: Colors.blue,
                    fontWeight: FontWeight.bold),
-                   ),
-                      
-                
-                
+                   ) 
         )
         
       

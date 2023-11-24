@@ -31,7 +31,7 @@ class MyDrawer extends StatelessWidget {
             title: Text("Home",style: TextStyle(color: Colors.white),),
             ),
             ListTile(onTap:(){
-
+         Navigator.pushNamed(context,MyObj.profileobj);
             },
             leading:Icon(CupertinoIcons.profile_circled),
             iconColor: Colors.white,

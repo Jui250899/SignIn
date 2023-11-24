@@ -14,6 +14,7 @@ import 'package:projnew/routes.dart';
 
 import 'homepage.dart';
 import 'objectsec.dart';
+import 'profileobj.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,8 +40,9 @@ class MyApp extends StatelessWidget {
         MyObj.obj4:(context) => objectFourth(),
         MyObj.obj5:(context) => objectFifth(),
         MyObj.objdrawer:(context) => objDrawer(),
+        MyObj.profileobj:(context) => ProfileObj(),
       },
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner:false,
     );
   }
 }
