@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:signin/addrecord.dart';
+import 'package:signin/regidrawer.dart';
 
 import 'package:signin/routes.dart';
 TextEditingController pw=TextEditingController();
@@ -38,7 +40,7 @@ if(form !=null && form.validate())
 Future<void>loginscreen(String email,String password)async{
   
 
- final  url="http://192.168.1.5:8000/api/signIn";
+ final  url="http://192.168.1.4:8000/api/signIn";
  final uri=Uri.parse(url);
  final body={"email":email,"password":password};
  final response=await http.post(uri,body:jsonEncode(body),
@@ -48,7 +50,7 @@ final msg=jsonDecode(response.body);
 print(msg['Login']);
 if(msg['Login']=='successfully'){
 
-  Navigator.pushNamed(context,MyRoute.homeroute);
+   Navigator.pushNamed(context,MyRoute.fetchdataobj);
 }
 else{
   showErrorMessage('Please enter valid Data');
@@ -64,9 +66,26 @@ void showErrorMessage(String msg){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My Form"),
+      appBar:AppBar(
+       title: Padding(
+          padding: const EdgeInsets.only(left: 1000),
+          child: ElevatedButton(onPressed:
+          navigateToAdd
+          , style: ElevatedButton.styleFrom(backgroundColor: Colors.orange,
+                 
+                  textStyle: TextStyle(color:Colors.orange,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),child: Padding(
+            padding: const EdgeInsets.only(left:10),
+            child: Text("New Customer ?",style:TextStyle(color:Colors.black,),),
+          )
+          
+          )
+       )
       ),
+                    
+        
+      
         body:  Container(
              width:double.infinity,
         decoration:const BoxDecoration(
@@ -222,13 +241,18 @@ Navigator.pushNamed(context,MyRoute.signinroute);
                         
               
             
-                ),
+                )
               
-            );
+        // drawer:const regidrawer(),
+       
    
-    
+    );
   }
- 
+  void navigateToAdd(){
+    final route=MaterialPageRoute(
+      builder: (context) =>const MySignUp(),);
+      Navigator.push(context,route);
+  }
 }
 
 

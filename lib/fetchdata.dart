@@ -10,6 +10,7 @@ import 'dart:convert';
 //import 'package:signin/adddata.dart';
 // ignore: depend_on_referenced_packages
 import 'package:signin/addrecord.dart';
+import 'package:signin/routes.dart';
 
 class FetchDataClass extends StatefulWidget {
   const FetchDataClass({super.key});
@@ -67,6 +68,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
         
       ),
          body:  Container(
+          
              width:double.infinity,
         decoration:const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
@@ -82,136 +84,164 @@ class _FetchDataClassState extends State<FetchDataClass> {
              //final item=vdetails[index] as Map;
     
           return SingleChildScrollView(
-       
-               child: DataTable(
-                  border: TableBorder.all(width: 1),
-                columnSpacing: 20,
-                columns: const [
-                   DataColumn(label: Text('USER ID'),),
-                  DataColumn(label: Text('USER FIRST NAME'),),
-                  DataColumn(label: Text('LAST NAME'),),
-                  DataColumn(label: Text('EMAIL')),
-                  DataColumn(label: Text('DATE')),
-                  DataColumn(label: Text('VNO')),
-                  DataColumn(label: Text('VMAKE')),
-                  DataColumn(label: Text('TELEPHONE')),
+           
+            child: Container( 
+              
+             // height: 100,
+              
+              
+                   child: DataTable(
+                      border: TableBorder.all(width: 1),
+                    columnSpacing: 20,
+                    columns: const [
+                       DataColumn(label: Text('USERid'),),
+                      DataColumn(label: Text('FIRST NAME'),),
+                      DataColumn(label: Text('LAST NAME'),),
+                      DataColumn(label: Text('EMAIL')),
+                      DataColumn(label: Text('DATE')),
+                      DataColumn(label: Text('VNO')),
+                      DataColumn(label: Text('VMAKE')),
+                      DataColumn(label: Text('TELEPHONE')),
                       DataColumn(label: Text('KMS')),
-                        DataColumn(label: Text('E')),
-                          DataColumn(label: Text('ITEM')),
-                            DataColumn(label: Text('REGULAR')),
-                             DataColumn(label: Text('IMAGES')),
-                             DataColumn(label: Text('Action')),
-                                DataColumn(label: Text('Action')),
-             
-             
-                             
-                ],
-               
-                         
+                      DataColumn(label: Text('E')),
+                      DataColumn(label: Text('ITEM')),
+                      DataColumn(label: Text('REGULAR')),
+                      DataColumn(label: Text('IMAGES')),
+                      DataColumn(label: Text('Action')),
+                      DataColumn(label: Text('Action')),
+                      DataColumn(label: Text('Action')),
+                              
+                                 
+                    ],
                    
-                rows: List.generate(
-                
-                  vdetails.length,
-                  (index) {
-                    var data = vdetails[index];
-                    final id=data['id'].toString();
-                    return DataRow(cells: [
-                        DataCell(
-                        CircleAvatar(radius:18.4,backgroundColor: Colors.black,child: Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Text('${index+1}'),
-                 )),
-                      ),
-                      DataCell(
-                        Text(data['name'].toString()),
-                      ),
-                      DataCell(
-                        Text(data['last'].toString()),
-                      ),
-                      DataCell(
-                        Text(data['email'].toString()),
-                      ),
-                       DataCell(
-                        Text(data['date'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['Vno'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['Vmake'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['tel'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['kms'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['E'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['item'].toString()),
-                        
-                      ),
-                       DataCell(
-                        Text(data['regular'].toString()),
-                        
-                       ),
-                       DataCell(
-                         _image==null ?Image.asset('assets/images/mynew.jpg'):
-                          Image.file(_image!),
-    //     Image.file(
-    //   vdetails[index],
-    //   fit: BoxFit.cover,
-    // )
-                        ),
-                
-  
-                        
-                     
-                       DataCell(
-                       ElevatedButton(onPressed: () =>{
-                        navigateToEdit(data),
-                       },child:Text("Edit"),)
-                        
-                      ),
-                     
-             
-                        DataCell(
-                       ElevatedButton(child: Text('Delete'),onPressed: () =>{
-                        deleteById(id)
-                       },
-                       style: ElevatedButton.styleFrom(backgroundColor: Colors.red,
-                 
-                  textStyle: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold)),)
-                        
-                      ),
-                    ]
-                    );
+                             
+                       
+                    rows: List.generate(
                     
-                  },
-                ).toList(),
-                showBottomBorder: true,
-               
-               
-               ),
-             );
+                      vdetails.length,
+                      
+                      (index) {
+                        
+                        
+                        var data = vdetails[index];
+                        final id=data['id'].toString();
+                        return DataRow(cells: [
+                          
+                            DataCell(
+                           
+                                 CircleAvatar(radius:18.4,backgroundColor: Colors.black,child: Padding(
+                                                     padding: const EdgeInsets.all(8.0),
+                                                     
+                                                     child: Text('${index+1}'),
+                                                   )),
+                              
+                          ),
+                          
+                          DataCell(
+                            Text(data['name'].toString()),
+                          ),
+                          DataCell(
+                            Text(data['last'].toString()),
+                          ),
+                          DataCell(
+                            Text(data['email'].toString()),
+                          ),
+                           DataCell(
+                            Text(data['date'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['Vno'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['Vmake'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['tel'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['kms'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['E'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['item'].toString()),
+                            
+                          ),
+                           DataCell(
+                            Text(data['regular'].toString()),
+                            
+                           ),
+                           DataCell(
+                             _image==null ?Image.asset('assets/images/mynew.jpg'):
+                              Image.file(_image!),
+                     //     Image.file(
+                     //   vdetails[index],
+                     //   fit: BoxFit.cover,
+                     // )
+                            ),
+                    
+                   
+                            
+                         
+                           DataCell(
+                           ElevatedButton(onPressed: () =>{
+                            navigateToEdit(data),
+                           },child:Text("Edit"),)
+                            
+                          ),
+                         
+                              
+                            DataCell(
+                           ElevatedButton(child: Text('Delete'),onPressed: () =>{
+                            deleteById(id)
+                           },
+                           style: ElevatedButton.styleFrom(backgroundColor: Colors.red,
+                     
+                      textStyle: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold)),)
+                            
+                          ),
+                           DataCell(
+                           ElevatedButton(child: Text('View'),onPressed: (){
+                           Navigator.pushNamed(context,MyRoute.viewobj);
+                           },
+                           style: ElevatedButton.styleFrom(backgroundColor: Colors.green,
+                     
+                      textStyle: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold)),)
+                            
+                          ),
+                        ]
+                        );
+                        
+                      },
+                    ).toList(),
+                    showBottomBorder: true,
+                   
+                   
+                   ),
+                 ),
+               );
+             
+            }
+          )
+         )
+    )
+    );
               
              
             }
-       )
-       )
-         )
-    );
-        }
+      
+        
             
        
               
@@ -221,7 +251,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
    
     
   Future<void>fetchData()async{
-  final url='http://192.168.1.5:8000/api/view';
+  final url='http://192.168.1.4:8000/api/view';
     final uri=Uri.parse(url);
     final response=await http.get(uri);
     if(response.statusCode==200){
@@ -233,7 +263,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
     };
   }
    Future<void>deleteById(String id)async{
-final url='http://192.168.1.5:8000/api/delete/$id';
+final url='http://192.168.1.4:8000/api/delete/$id';
     final uri=Uri.parse(url);
     final response=await http.delete(uri);
     showSuccessMessage('deleted successfully');

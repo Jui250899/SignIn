@@ -4,4 +4,5 @@ class MyRoute{
   static String signuproute="/signup";
   static String signinroute="/logindata";
   static String fetchdataobj='/objfetch';
+  static String viewobj='/objview';
 }

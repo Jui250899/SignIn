@@ -30,7 +30,7 @@ class _MySignUpState extends State<MySignIn> {
     };
     //print(email);
     //print(password);
-    const url = 'http://192.168.1.5:8000/api/signUp';
+    const url = 'http://192.168.1.4:8000/api/signUp';
     //const url = 'http://192.168.1.4:8000/api/signin';
     //print(url);
     final uri = Uri.parse(url);

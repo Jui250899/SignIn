@@ -602,7 +602,7 @@ class _MySignUpState extends State<MySignUp> {
    };
    print(body);
    print(name);
-   const url='http://192.168.1.5:8000/api/insertdata';
+   const url='http://192.168.1.4:8000/api/insertdata';
    final uri=Uri.parse(url);
    final response =await http.post(uri,body:jsonEncode(body),
    headers:{'Content-type':'application/json'},
@@ -660,7 +660,7 @@ Future<void>updateData(
 
 
    };
-   final url='http://192.168.1.5:8000/api/update/$id';
+   final url='http://192.168.1.4:8000/api/update/$id';
    print(url);
    final uri=Uri.parse(url);
    final response =await http.put(uri,body:jsonEncode(body),

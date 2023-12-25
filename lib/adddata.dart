@@ -342,7 +342,7 @@ Future<void>updateData()async{
 
 
    };
-   final url='http://192.168.1.5:8000/api/update/$id';
+   final url='http://192.168.1.3:8000/api/update/$id';
    print(url);
    final uri=Uri.parse(url);
    final response =await http.put(uri,body:jsonEncode(body),

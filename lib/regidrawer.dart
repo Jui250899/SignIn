@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:signin/routes.dart';
 
 
-class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+class regidrawer extends StatelessWidget {
+  const regidrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +27,28 @@ class MyDrawer extends StatelessWidget {
             ),
             ),
             ListTile(onTap:() {
-               Navigator.pushNamed(context,MyRoute.loginroute);
+               Navigator.pushNamed(context,MyRoute.fetchdataobj);
                
             },
             
             leading:Icon(CupertinoIcons.home),
             iconColor: Colors.white,
-            title: Text("SignIn",style: TextStyle(color:Colors.white),),
+            title: Text("Home",style: TextStyle(color:Colors.white),),
             ),
             ListTile(onTap:(){
 
             },
-            // leading:Icon(CupertinoIcons.profile_circled),
-            // iconColor: Colors.white,
-            // title: Text("Profile",style: TextStyle(color: Colors.white),),
-            // ),
-            //  ListTile(onTap:(){
+            leading:Icon(CupertinoIcons.profile_circled),
+            iconColor: Colors.white,
+            title: Text("Profile",style: TextStyle(color: Colors.white),),
+            ),
+             ListTile(onTap:(){
 
-            // },
-            // leading:Icon(CupertinoIcons.mail),
-            // iconColor: Colors.white,
-            // title: Text("Contact",style: TextStyle(color: Colors.white),),
-             )
+            },
+            leading:Icon(CupertinoIcons.mail),
+            iconColor: Colors.white,
+            title: Text("Contact",style: TextStyle(color: Colors.white),),
+            )
           ],
         ),
       ),

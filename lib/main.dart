@@ -6,6 +6,7 @@ import 'package:signin/regi.dart';
 import 'package:signin/routes.dart';
 import 'package:signin/signin.dart';
 import 'package:signin/addrecord.dart';
+import 'package:signin/viewpage.dart';
 void main()
 {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyLogin(),
+      home: MyHome(),
       debugShowCheckedModeBanner: false,
       routes: {
         MyRoute.loginroute:(context) => MyLogin(),
@@ -29,6 +30,7 @@ class _MyAppState extends State<MyApp> {
         MyRoute.signinroute:(context) => MySignIn(),
         MyRoute.fetchdataobj:(context)=> FetchDataClass(),
         MyRoute.homeroute:(context)=>MyHome(),
+        MyRoute.viewobj:(context) => ViewPage(),
       
       }
     );
