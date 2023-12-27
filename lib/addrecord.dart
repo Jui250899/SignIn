@@ -121,16 +121,21 @@ class _MySignUpState extends State<MySignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar:  PreferredSize(
+          preferredSize: Size.fromHeight(100.0), // here the desired height
+          child: AppBar(
+        
+        backgroundColor: Colors.black,
          title: Text(
           isEdit?'Edit':'Add data',
       ),
       ),
+      ),
     body: 
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 150),
-      child: SingleChildScrollView(
+  SingleChildScrollView(
+        
      child:Container(
+      
              width:double.infinity,
         decoration:const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
@@ -534,7 +539,7 @@ class _MySignUpState extends State<MySignUp> {
               )
      )
       )
-    )
+    
     );
 
      

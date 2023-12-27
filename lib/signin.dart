@@ -56,24 +56,31 @@ class _MySignUpState extends State<MySignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text("Sign Up") ,
       ),
     body: Padding(
           padding: const EdgeInsets.symmetric(horizontal:0,vertical:0),
           child: Container(
+             width:double.infinity,
+        decoration:const BoxDecoration(
+          gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
+          transform: GradientRotation(3.14/2))
+        ),
             child:Form(key:_MyFormKey,              
                child: Padding(padding:EdgeInsets.all(8.0),
                 child:Column(
                   children:<Widget>[
                       
-                  Center(child: Center(child: Image.asset("assets/images/newimage.jpg",
-                  fit: BoxFit.fill,
-                  height: 300,width:800),
-                  )
+                  Center(
+                    //child: Center(child: Image.asset("assets/images/newimage.jpg",
+                 // fit: BoxFit.fill,
+                // height: 300,width:800),
+                // )
                   
-                  ,
+                  
                   ),
-                    Padding(padding:EdgeInsets.all(8.0),
+                    Padding(padding:EdgeInsets.fromLTRB(90,160,90,0),
                     child:
                 TextFormField(
                   controller: namec,
@@ -89,13 +96,13 @@ class _MySignUpState extends State<MySignIn> {
                    
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
 
-                     icon:Icon(Icons.man)
+                     icon:Icon(Icons.man,color: Colors.black,)
                   ),
                 ),
                 
                 ),
                  
-                Padding(padding:EdgeInsets.all(8.0),
+               Padding(padding:EdgeInsets.fromLTRB(90,20,90,0),
                 child:
                 TextFormField(
                   controller: ec,
@@ -114,13 +121,13 @@ class _MySignUpState extends State<MySignIn> {
                     hintText: "Aspirewebs101@gmail.com",
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
                  
-                     icon:Icon(Icons.mail)
+                     icon:Icon(Icons.mail,color: Colors.black,)
                   ),
                 ),
                 
                 ),
               
-                Padding(padding:EdgeInsets.all(8.0),
+                Padding(padding:EdgeInsets.fromLTRB(90,20,90,0),
                 child:
                TextFormField(
                 controller: pw,
@@ -142,7 +149,7 @@ decoration: InputDecoration(
   hintText: "Password",
   icon: Icon(
     Icons.lock,
-    color: Colors.grey,
+    color: Colors.black,
   ),
   suffix: IconButton(
     padding: const EdgeInsets.all(0),
@@ -150,7 +157,7 @@ decoration: InputDecoration(
     icon: _isObscure
         ? const Icon(
             Icons.visibility_off,
-            color: Colors.grey,
+            color: Colors.black,
           )
         : const Icon(
             Icons.visibility,
@@ -166,7 +173,7 @@ decoration: InputDecoration(
                )
                
                 ),
-                Padding(padding:EdgeInsets.all(8.0),
+                Padding(padding:EdgeInsets.fromLTRB(90,20,90,0),
                 child:
                 TextFormField(
                   controller: cpw,
@@ -186,7 +193,7 @@ decoration: InputDecoration(
   hintText: "Confirm Password",
   icon: Icon(
     Icons.lock,
-    color: Colors.grey,
+    color: Colors.black,
   ),
   suffix: IconButton(
     padding: const EdgeInsets.all(0),
@@ -194,7 +201,7 @@ decoration: InputDecoration(
     icon: _isObscure
         ? const Icon(
             Icons.visibility_off,
-            color: Colors.grey,
+            color: Colors.black,
           )
         : const Icon(
             Icons.visibility,
@@ -210,10 +217,14 @@ decoration: InputDecoration(
                )
                
                 ),
-                ElevatedButton(onPressed:(){
-                  if(_MyFormKey.currentState!.validate()){
-                    signUpscreen(namec.text.toString(),ec.text.toString(),pw.text.toString(),cpw.text.toString());}
-   } , child: Text("Sign Up"))
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(onPressed:(){
+                    if(_MyFormKey.currentState!.validate()){
+                      signUpscreen(namec.text.toString(),ec.text.toString(),pw.text.toString(),cpw.text.toString());}
+                      
+                   } , child: Text("Sign Up")),
+                )
                
     
             

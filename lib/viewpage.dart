@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:signin/fetchdata.dart';
 
 class ViewPage extends StatefulWidget {
   final Map? vdata;
+  
   const ViewPage({super.key,this.vdata});
 
   @override
@@ -10,115 +14,217 @@ class ViewPage extends StatefulWidget {
 }
 
 class _ViewPageState extends State<ViewPage> {
-   TextEditingController namec=TextEditingController();
-  TextEditingController lastController=TextEditingController();
-   TextEditingController ec=TextEditingController();
-   TextEditingController dateController=TextEditingController();
-    TextEditingController vnoController=TextEditingController();
-     TextEditingController vmakeController=TextEditingController();
-      TextEditingController telController=TextEditingController();
-       TextEditingController kmsController=TextEditingController();
-        TextEditingController regController=TextEditingController();
-         TextEditingController frontController=TextEditingController();
-          TextEditingController rightController=TextEditingController();
-           TextEditingController leftController=TextEditingController();
-            TextEditingController rearController=TextEditingController();
-             TextEditingController dashboardController=TextEditingController();
-              TextEditingController dickeyController=TextEditingController();
-               TextEditingController createdatController=TextEditingController();
-                TextEditingController updatedatController=TextEditingController();
-                 TextEditingController itemController=TextEditingController();
-                  TextEditingController eController=TextEditingController();
-   bool isView=false;
-  @override
-  void initState() {
+var vehicledetails=jsonDecode(details);
    
-    super.initState();
-    final vdata=widget.vdata;
-    if(vdata!=null){
-      isView=true;
-      final name=vdata['name'].toString();
-      final last=vdata['last'].toString();
-      final email=vdata['email'].toString();
-      final date=vdata['date'].toString();
-      final Vno=vdata['Vno'].toString();
-      final Vmake=vdata['Vmake'].toString();
-      final tel=vdata['tel'].toString();
-      final kms=vdata['kms'].toString();
-      final E=vdata['E'].toString();
-       // final item=vdata['item'].toString();
-     final regular=vdata['regular'].toString();
-       //final front=vdata['front'];
-      // // final right=vdata['right'];
-      // // final left=vdata['left'];
-      // // final rear=vdata['rear'];
-      // // final dashboard=vdata['dashboard'];
-      // // final dickey=vdata['dickey'];
-      
-
-
-
-      namec.text=name;
-      lastController.text=last;
-      ec.text=email;
-      dateController.text=date;
-      vnoController.text=Vno;
-      vmakeController.text=Vmake;
-      telController.text=tel;
-      kmsController.text=kms;
-      eController.text=E;
-   //itemController.text=item;
-      regController.text=regular;
-    // frontController.text=front;
-      // rightController.text=right;
-      // leftController.text=left;
-      // rearController.text=rear;
-      // dashboardController.text=dashboard;
-      // dickeyController.text=dickey;
-      
-
-    }
-  }
-  
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(
-        
-      ),
-    body: 
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 150),
-      child: SingleChildScrollView(
-     child:Container(
-             width:double.infinity,
-        decoration:const BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
-          transform: GradientRotation(3.14/2))
-        ),
       
-              child: Column(
-                children:<Widget> [
-                  
-                    Center(
-                      child: Padding(padding:EdgeInsets.symmetric(horizontal:150,vertical:500),
-                      child:Text(namec.text,
-                      ),
-                    ),
-                    )
-                       
-     
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80.0), // here the desired height
+          child:AppBar(
+        backgroundColor: Colors.black,
+        title:Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return RadialGradient(
+                  center: Alignment.topLeft,
+                  radius: 1.0,
+                  colors: [const Color.fromARGB(255, 230, 184, 116), Color.fromARGB(255, 232, 161, 103),Color.fromARGB(219, 243, 147, 2),Color.fromARGB(255, 237, 206, 118)],
+                  tileMode: TileMode.mirror,
+                ).createShader(bounds);
+              },
+              child: Text(
+                'User Details',
+                style: TextStyle(
+                  fontSize: 35.0,
+                  color: Colors.white,
+                  fontWeight:FontWeight.w600
+                ),
+              ),
+            ),
+            
+          
+          ],
+        ))
+      ),
+   body: 
+   
     
-   // Text("User Id:$id"),
-
-  
-                    
-  ],
-)
-    )
-      )
-    )
+        
+          SingleChildScrollView(
+         
+          
+             child: Card(
+               child: Container(
+                       width:1500,
+                       height: 1000,
+                  decoration: BoxDecoration(
+                     //borderRadius: BorderRadius.circular(100.0),
+                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 246, 177, 28),Color(0xFFFF9800)],
+                    transform: GradientRotation(3.14/2))
+                  ),
+                
+                        
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 100,horizontal:50),
+                            child: Center( 
+                             
+                                
+                                child: Column(
+                                  children:[
+                                    Center(
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(5.0),
+                                              child: Text("User Name        :",style: TextStyle(fontWeight: FontWeight.w600,fontSize:17),),
+                                            )),
+                                        Padding(
+                                          padding: const EdgeInsets.only(left:60.0),
+                                          child: Text(vehicledetails['vdetails']['name'].toString(),style: TextStyle(fontSize:17),),
+                                        ),
+                                          
+                                           SizedBox(width: 4,),
+                                            Text(vehicledetails['vdetails']['last'].toString(),style: TextStyle(fontSize:17)),
+                                         ]
+                                      ),
+                                    ),
+                                      
+                                    
+                                  
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Row( children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Text("Email                  :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),)
+                                          ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left:67.0),
+                                              child: Text(vehicledetails['vdetails']['email'].toString(),style: TextStyle(fontSize:17)),
+                                            ),
+                                          
+                                  ]
+                                      ),
+                                ),
+                                     Padding(
+                                       padding: const EdgeInsets.all(5.0),
+                                       child: Row( children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Text("Vno                     :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                          ),
+                                           Padding(
+                                             padding: const EdgeInsets.only(left:65.0),
+                                             child: Text(vehicledetails['vdetails']['Vno'].toString(),style: TextStyle(fontSize:17)),
+                                           ),
+                                        
+                                                                     ]
+                                                                         ),
+                                     ),
+                                     Padding(
+                                       padding: const EdgeInsets.all(5.0),
+                                       child: Row( children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Text("Vmake                :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                          ),
+                                           Padding(
+                                             padding: const EdgeInsets.only(left:65.0),
+                                             child: Text(vehicledetails['vdetails']['Vmake'].toString(),style: TextStyle(fontSize:17)),
+                                           ),
+                                          
+                                                                     ]
+                                                                         ),
+                                     ),
+                                     Padding(
+                                       padding: const EdgeInsets.all(5.0),
+                                       child: Row( children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Text("Telephone No    :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                          ),
+                                           Padding(
+                                             padding: const EdgeInsets.only(left:64.0),
+                                             child: Text(vehicledetails['vdetails']['tel'].toString(),style: TextStyle(fontSize:17)),
+                                           ),
+                                           
+                                                                     ]
+                                                                         ),
+                                     ),
+                                     Padding(
+                                       padding: const EdgeInsets.all(5.0),
+                                       child: Row( children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Text("kms                     :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                          ),
+                                           Padding(
+                                             padding: const EdgeInsets.only(left:65.0),
+                                             child: Text(vehicledetails['vdetails']['kms'].toString(),style: TextStyle(fontSize:17)),
+                                           ),
+                                          
+                                                                     ]
+                                                                         ),
+                                     ),
+                                     Padding(
+                                       padding: const EdgeInsets.all(5.0),
+                                       child: Row( children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:500),
+                                            child: Text("Regular               :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:68.0),
+                                            child: Text(vehicledetails['vdetails']['regular'].toString(),style: TextStyle(fontSize:17)),
+                                          ),
+                                           ]),
+                                     ),
+                                          // Padding(
+                                          //   padding: const EdgeInsets.all(5.0),
+                                          //   child: Row( children: [
+                                          //                                         Padding(
+                                          //   padding: const EdgeInsets.only(left:500),
+                                          //   child: Text("Image:",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                          //                                         ),
+                                          //                                          Padding(
+                                          //                                            padding: const EdgeInsets.only(left:8.0),
+                                          //                                            child: Text(vehicledetails['vdetails']['_image'].toString(),style: TextStyle(fontSize:17)),
+                                          //                                          ),
+                                                                                   
+                                          //                                 ]
+                                          //                                     ),
+                                          // ),
+                                ]
+                                    
+                                                   
+                                    
+                                     
+                                       
+                                        ),
+                              ),
+                          ),
+                          ),
+             ),
+                              
+                  ),
+         
+                        
+                       
+                         //  child: Text(vehicledetails['vdetails']['last'].toString(),
+                        
+                         
+    
     );
+                      
+              
+    
+    
   }
 }
 

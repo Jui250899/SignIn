@@ -67,21 +67,7 @@ void showErrorMessage(String msg){
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-       title: Padding(
-          padding: const EdgeInsets.only(left: 1000),
-          child: ElevatedButton(onPressed:
-          navigateToAdd
-          , style: ElevatedButton.styleFrom(backgroundColor: Colors.orange,
-                 
-                  textStyle: TextStyle(color:Colors.orange,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold)),child: Padding(
-            padding: const EdgeInsets.only(left:10),
-            child: Text("New Customer ?",style:TextStyle(color:Colors.black,),),
-          )
-          
-          )
-       )
+      backgroundColor: Colors.black,
       ),
                     
         
@@ -204,16 +190,16 @@ void showErrorMessage(String msg){
                        Text(
                          
                          "Do not Have an Account ?  ",
-                        
+                        style: TextStyle(fontWeight: FontWeight.w800),
                          
                        
                           ),Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(10.0),
                              child: ElevatedButton( child: Text("Sign Up"),onPressed: (){
 
 Navigator.pushNamed(context,MyRoute.signinroute);
                           
-   },style: ElevatedButton.styleFrom(backgroundColor: Colors.red,
+   },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
                
                 textStyle: TextStyle(
                 fontSize: 12,
@@ -248,11 +234,7 @@ Navigator.pushNamed(context,MyRoute.signinroute);
    
     );
   }
-  void navigateToAdd(){
-    final route=MaterialPageRoute(
-      builder: (context) =>const MySignUp(),);
-      Navigator.push(context,route);
-  }
+ 
 }
 
 

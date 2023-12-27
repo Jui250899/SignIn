@@ -18,7 +18,10 @@ class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
+      appBar:PreferredSize(
+          preferredSize: Size.fromHeight(200.0), // here the desired height
+          child: AppBar(
+        backgroundColor: Colors.black,
       //  title: Padding(
           // padding: const EdgeInsets.only(left: 1000),
           // child: ElevatedButton(onPressed:
@@ -34,11 +37,12 @@ class _MyHomeState extends State<MyHome> {
           
                       
                     ),
-        
+      ),
       
       
      
       body:Container(
+        
         width:double.infinity,
         decoration:const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
@@ -62,7 +66,21 @@ class _MyHomeState extends State<MyHome> {
              
                mainAxisAlignment: MainAxisAlignment.center,
                crossAxisAlignment: CrossAxisAlignment.center,
-             children: [Padding(
+             children: 
+             [  FractionalTranslation(
+              translation: Offset(0.0,-6.590),
+              child: Align(
+                child: CircleAvatar(
+                  
+                  radius: 25.0,
+                  //maxRadius: 30,
+                  backgroundColor:Colors.black,
+                  //child: Text("A"),
+                ),
+                alignment: FractionalOffset(0.5,0.8),
+              ),
+            ),
+              Padding(
                   padding: const EdgeInsets.all(0.0),
                 
                  //child: Text("Welcome to TATA MOTORS",style: TextStyle(fontSize: 50,fontWeight: FontWeight.w900,color: Colors.black),),
@@ -81,7 +99,7 @@ class _MyHomeState extends State<MyHome> {
             style: TextStyle(
               fontSize: 50.0,
               color: Colors.white,
-              fontWeight:FontWeight.w600
+              fontWeight:FontWeight.w900
             ),
           ),
         ),
@@ -91,9 +109,9 @@ class _MyHomeState extends State<MyHome> {
               //   ),
               
                
-      //             Center(child: Center(child: Image.asset("assets/images/final.jpg",fit:BoxFit.fill,
-      //             height: 300,width:550),
-      //             )
+                  // Center(child: Center(child: Image.asset("assets/images/tata.jpg",fit:BoxFit.fill,
+                  // height: 300,width:550),
+                  // ))
                   
       //             ,
       //             ),
