@@ -9,8 +9,8 @@ TextEditingController pw=TextEditingController();
 TextEditingController ec=TextEditingController();
 TextEditingController cpw=TextEditingController();
 TextEditingController namec=TextEditingController();
-
-
+FocusNode FocusNodeEmail= new FocusNode();
+FocusNode FocusNodePassword= new FocusNode();
 bool _isObscure = true;
 class MyLogin extends StatefulWidget{
   @override
@@ -117,7 +117,17 @@ void showErrorMessage(String msg){
                                                   decoration: InputDecoration(hoverColor: Colors.black,
                                                   labelText: "Email",
                                                   hintText: "Aspirewebs101@gmail.com",
-                                                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                                                  labelStyle: TextStyle(
+                             color: FocusNodeEmail.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
+                                                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                                                  
                                                    icon:Icon(Icons.mail,color: Colors.black,),
                                                  fillColor: Colors.grey
@@ -125,9 +135,9 @@ void showErrorMessage(String msg){
                                               ),
                           ),
                           
-                            Padding(padding:EdgeInsets.symmetric(horizontal:340),
+                            Padding(padding:EdgeInsets.symmetric(horizontal:330),
                              child: Padding(
-                               padding: const EdgeInsets.all(8.0),
+                               padding: const EdgeInsets.all(15.0),
                                child: TextFormField(
                                 controller: pw,
                                  obscureText: _isObscure,
@@ -145,7 +155,17 @@ void showErrorMessage(String msg){
                                                    
                                                    labelText:"Password",
                                hintText: "Password",
-                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                                labelStyle: TextStyle(
+                             color: FocusNodePassword.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
+                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                                icon: Icon(
                                  Icons.lock,
                                 color: Colors.black,

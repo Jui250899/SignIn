@@ -1,69 +1,24 @@
-
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:image_picker/image_picker.dart';
-
-import 'dart:convert';
-
-//import 'package:signin/adddata.dart';
-// ignore: depend_on_referenced_packages
-import 'package:signin/addrecord.dart';
-import 'package:signin/regi.dart';
+import 'package:signin/addlabour.dart';
 import 'package:signin/routes.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 TextEditingController SearchController=TextEditingController();
-FocusNode FocusNodeSearch= new FocusNode();
- var details;
-class FetchDataClass extends StatefulWidget {
-  const FetchDataClass({super.key});
+class MyLabour extends StatefulWidget {
+  const MyLabour({super.key});
 
   @override
-  State<FetchDataClass> createState() => _FetchDataClassState();
-
+  State<MyLabour> createState() => _MyLabourState();
+  
 }
-
-class _FetchDataClassState extends State<FetchDataClass> {
- 
-// Future getImage() async{
-//     final image=await ImagePicker().pickImage(source: ImageSource.gallery);
-//     if(image==null) return;
-//     Uint8List imagebyte=await image!.readAsBytes();
-//     String _base64=base64.encode(imagebyte);
-
-//     print(_base64);
-//     final imagetemp=File(image.path);
-//     print(imagetemp);
-//     // setState(() {
-//     //   this._image=imagetemp;
-//     // });
-//   } File? _image;
- File? _image;
- Future getImage() async{
- 
-    final image=await ImagePicker().pickImage(source: ImageSource.gallery);
-    if(image==null) return;
-    Uint8List imagebyte=await image!.readAsBytes();
-    String _base64=base64.encode(imagebyte);
-
-    print(_base64);
-    
-    final imagetemp=File(image.path);
-    setState(() {
-      
-      this._image=imagetemp;
-    });
-    print(imagetemp);
- }
-
-     List vdetails=[];
+class _MyLabourState extends State<MyLabour> {
+ List labourdetails=[];
      //var name=vdetails['name'];
 
   @override
   void initState() {
     super.initState();
-    fetchData();
+    fetchLabourData();
   }
     @override
   Widget build(BuildContext context) {
@@ -72,8 +27,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(200.0), // here the desired height
           child: AppBar(
-        
-         title:  Row(
+        title:  Row(
            children: [
           
             // TextFormField(
@@ -84,35 +38,37 @@ class _FetchDataClassState extends State<FetchDataClass> {
             //     labelText: "Search"
             //   ),
             // ),
-             //Text("Customer Detail List",style: TextStyle(fontSize: 35,color: Colors.orange,fontWeight: FontWeight.bold)),
-            Padding(
+           //  Text("Labour Detail List",style: TextStyle(fontSize: 30,color: Colors.orange,fontWeight: FontWeight.bold)),
+           Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchprod);}, child: Text("Product",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,
-                    ),)),
+                    child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchprod);}, child: Text("Product",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
                   ),
                  Padding(
                    padding: const EdgeInsets.all(8.0),
                    child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.labourdobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
                  ),
-              Divider(thickness:0.5,color: Colors.orange,),TextButton(onPressed:  (){}, child: Text("Customer",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,)))
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextButton(onPressed:  (){Navigator.pushNamed(context,MyRoute.fetchdataobj);}, child: Text("Customer",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,))),
+              )
                 ],
               ),
             ),
             Padding(
           padding: const EdgeInsets.fromLTRB(600,70,0,0),
           child: ElevatedButton(onPressed:
-          navigateToAdd
+          navigateToAddLabour
           , style: ElevatedButton.styleFrom(backgroundColor: Colors.orange,
                  
                   textStyle: TextStyle(color:Colors.orange,
                   fontSize: 16,
                   fontWeight: FontWeight.bold)),child: Padding(
             padding: const EdgeInsets.only(left:0),
-            child: Text("+ New Customer ?",style:TextStyle(color:Colors.black,),),
+            child: Text("+ New Labour ?",style:TextStyle(color:Colors.black,),),
           )))
            ],
          ),
@@ -128,7 +84,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
         ),
         elevation: 0.00,
         backgroundColor: Colors.black,
-        
+         
       ), 
         
       ),
@@ -144,12 +100,12 @@ class _FetchDataClassState extends State<FetchDataClass> {
         ),
        child:RefreshIndicator(
         
-          onRefresh: fetchData,
+          onRefresh: fetchLabourData,
           
           child: ListView.builder(
             
             itemCount:1,itemBuilder: (context, index)  {
-              final data=vdetails[index] ;
+              final data=labourdetails[index] ;
               
              //final item=vdetails[index] as Map;
     
@@ -182,17 +138,8 @@ class _FetchDataClassState extends State<FetchDataClass> {
               controller: SearchController,
               decoration: InputDecoration(
               hintText: "Search",
-               hintStyle: TextStyle(
-                             color: FocusNodeSearch.hasFocus ? Colors.blue : Colors.grey.shade900
-                             ),
-                             
-                              focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.black
-        )
-      ),
               border:OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-              suffixIcon: Icon(Icons.search,color: Colors.black,)
+              suffixIcon: Icon(Icons.search,)
               
              ),
                //onChanged:fetchData(),
@@ -202,7 +149,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
            Padding(
              padding: const EdgeInsets.all(8.0),
              child:  ElevatedButton(child: Text('Search'),onPressed: () =>{
-                             fetchData(),
+                             fetchLabourData(),
                              },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
                        
                         textStyle: TextStyle(
@@ -210,26 +157,17 @@ class _FetchDataClassState extends State<FetchDataClass> {
                         fontWeight: FontWeight.bold)),),
            ),
                Padding(
-                     padding: const EdgeInsets.all(70.0),
+                     padding: const EdgeInsets.all(100.0),
                      child: DataTable(
                       showCheckboxColumn: false,
                       
                         border: TableBorder.all(width:1),
                       columnSpacing:80,
                       columns: const [
-                         DataColumn(label: Text('USERid',style: TextStyle(fontWeight: FontWeight.w900),),),
-                        DataColumn(label: Text('FIRST NAME',style: TextStyle(fontWeight: FontWeight.w900)),),
-                        DataColumn(label: Text('LAST NAME',style: TextStyle(fontWeight: FontWeight.w900)),),
-                        DataColumn(label: Text('EMAIL',style: TextStyle(fontWeight: FontWeight.w900))),
-                        // DataColumn(label: Text('DATE')),
-                         DataColumn(label: Text('VNO',style: TextStyle(fontWeight: FontWeight.w900))),
-                        // DataColumn(label: Text('VMAKE')),
-                        // DataColumn(label: Text('TELEPHONE')),
-                        // DataColumn(label: Text('KMS')),
-                        // DataColumn(label: Text('E')),
-                        // DataColumn(label: Text('ITEM')),
-                        // DataColumn(label: Text('REGULAR')),
-                        // DataColumn(label: Text('IMAGES')),
+                        DataColumn(label: Text('Labour ID',style: TextStyle(fontWeight: FontWeight.w900,),),),
+                         DataColumn(label: Text('Labour Name',style: TextStyle(fontWeight: FontWeight.w900,),),),
+                        DataColumn(label: Text('Labour Price',style: TextStyle(fontWeight: FontWeight.w900,)),),
+                        
                         DataColumn(label: Text('Action',style: TextStyle(fontWeight: FontWeight.w900))),
                         DataColumn(label: Text('Action',style: TextStyle(fontWeight: FontWeight.w900))),
                         // DataColumn(label: Text('Action')),
@@ -241,92 +179,43 @@ class _FetchDataClassState extends State<FetchDataClass> {
                          
                       rows: List.generate(
                       
-                        vdetails.length,
+                        labourdetails.length,
                         
                         (index) {
                           
                           
-                          var data = vdetails[index];
+                          var data = labourdetails[index];
                           final id=data['id'].toString();
                         // final name=data['name'].toString();
                             
                           return DataRow(
                           
-                             onSelectChanged: (bool? selected) {
-                                   if (selected!) {
-                     fetchbyId(id);
-                                   }
-                               },
+                            
                             // onLongPress: () {
                             //   fetchbyId(id);
                             // },
                             cells: <DataCell>[
-                              DataCell(  
+                              DataCell(   
                                      CircleAvatar(radius:18.4,backgroundColor: Colors.black,child: Padding(
                                                            padding: const EdgeInsets.all(8.0),
                                                            
                                                            child: Text('${index+1}'),
                                                          )),
                                    
-                                     ),
-                              
+                              ),
+                                 
                             DataCell(
                               
-                              Text(data['name'].toString()),
+                              Text(data['l_name'].toString()),
                             ),
                             DataCell(
-                              Text(data['last'].toString()),
+                              Text(data['l_price'].toString()),
                             ),
-                            DataCell(
-                              Text(data['email'].toString()),
-                            ),
-                      //        DataCell(
-                      //         Text(data['date'].toString()),
-                              
-                      //       ),
-                             DataCell(
-                              Text(data['Vno'].toString()),
-                              
-                            ),
-                      //        DataCell(
-                      //         Text(data['Vmake'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['tel'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['kms'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['E'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['item'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['regular'].toString()),
-                              
-                      //        ),
-                      //        DataCell(
-                      //          _image==null ?Image.asset('assets/images/mynew.jpg'):
-                      //           Image.file(_image!),
-                      //  //     Image.file(
-                      //  //   vdetails[index],
-                      //  //   fit: BoxFit.cover,
-                      //  // )
-                      //        ),
-                      
-                     
-                              
+                           
                            
                              DataCell(
                              ElevatedButton(child: Text('Edit'),onPressed: () =>{
-                              navigateToEdit(data),
+                              navigateToEditLabour(data),
                              },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
                        
                         textStyle: TextStyle(
@@ -340,7 +229,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
                              
                             DataCell
                             (ElevatedButton(child: Text('Delete'),onPressed: () =>{
-                              deleteById(id)
+                              deleteLabourById(id)
                              },
                              style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
                        
@@ -359,7 +248,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
                         // fontSize: 12,
                         // fontWeight: FontWeight.bold)),)
                               
-                         
+                        //     ),
                           ]
                           );
                           
@@ -387,17 +276,14 @@ class _FetchDataClassState extends State<FetchDataClass> {
           )
          )
     )
-    
     );
-              
-             
-            }
-      
-  Future<void>fetchbyId(String id)async{
+    
+  }
+  Future<void>fetchLabourbyId(String id)async{
   final url='http://192.168.1.4:8000/api/srecord/$id';
     final uri=Uri.parse(url);
     final response=await http.get(uri);
-  details=response.body;
+    //details=response.body;
     if(response.statusCode==200){
       Navigator.pushNamed(context,MyRoute.viewobj);
     //   final json=jsonDecode(response.body) as Map;
@@ -408,28 +294,29 @@ class _FetchDataClassState extends State<FetchDataClass> {
     // };
   }
   }
-  Future<void>fetchData()async{
-    var data=SearchController.text;
-  final url='http://192.168.1.4:8000/api/view?search='+ data;
+  Future<void>fetchLabourData()async{
+    //var data=SearchController.text;
+  final url='http://192.168.1.4:8000/api/viewlabour';
     final uri=Uri.parse(url);
     final response=await http.get(uri);
     if(response.statusCode==200){
       final json=jsonDecode(response.body) as Map;
-      final result=json['vdetails'] as List;
+      final result=json['labourdetails'] as List;
       setState(() {
-        vdetails=result;
+        labourdetails=result;
       });
     };
   }
-   Future<void>deleteById(String id)async{
-final url='http://192.168.1.4:8000/api/delete/$id';
+  
+   Future<void>deleteLabourById(String id)async{
+final url='http://192.168.1.4:8000/api/labourdel/$id';
     final uri=Uri.parse(url);
     final response=await http.delete(uri);
     showSuccessMessage('deleted successfully');
     if(response.statusCode==200){
-      final filtered=vdetails.where((element) => element['id'].toString()!=id).toList();
+      final filtered=labourdetails.where((element) => element['id'].toString()!=id).toList();
       setState(() {
-        vdetails=filtered;
+        labourdetails=filtered;
       });
    }else{
     showErrorMessage('Deletion failed');
@@ -447,14 +334,14 @@ void showErrorMessage(String msg){
    
   
 
-Future<void> navigateToEdit(Map data)async{
+Future<void> navigateToEditLabour(Map data)async{
     final route=MaterialPageRoute(
-      builder: (context) => MyAdd(vdata:data),);
+      builder: (context) => MyLabourAdd(ldata:data),);
      await Navigator.push(context,route);
   }
-   void navigateToAdd(){
+   void navigateToAddLabour(){
     final route=MaterialPageRoute(
-      builder: (context) =>const MyAdd(),);
+      builder: (context) =>const MyLabourAdd(),);
       Navigator.push(context,route);
   }
-  }
+}

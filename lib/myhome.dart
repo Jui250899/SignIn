@@ -67,7 +67,8 @@ class _MyHomeState extends State<MyHome> {
                mainAxisAlignment: MainAxisAlignment.center,
                crossAxisAlignment: CrossAxisAlignment.center,
              children: 
-             [  FractionalTranslation(
+             [
+             FractionalTranslation(
               translation: Offset(0.0,-6.590),
               child: Align(
                 child: CircleAvatar(

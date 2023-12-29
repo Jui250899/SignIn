@@ -11,20 +11,28 @@ import 'package:signin/routes.dart';
 //import 'package:signin/registration.dart';
 //import 'package:signin/routes.dart';
 
+FocusNode FocusNodeName= new FocusNode();
+FocusNode FocusNodeRegular= new FocusNode();
+FocusNode FocusNodeLastName= new FocusNode();
+FocusNode FocusNodeEmail= new FocusNode();
+FocusNode FocusNodeVmake= new FocusNode();
+FocusNode FocusNodeVno=new FocusNode();
+FocusNode FocusNodeDate =new FocusNode();
+FocusNode FocusNodePhone= new FocusNode();
+FocusNode FocusNodekms= new FocusNode();
+FocusNode FocusNodeFuel= new FocusNode();
 
-
-
-class MySignUp extends StatefulWidget {
+class MyAdd extends StatefulWidget {
   final Map? vdata;
-  const MySignUp({super.key,this.vdata,});
+  const MyAdd({super.key,this.vdata,});
 
   @override
-  State<MySignUp> createState() => _MySignUpState();
+  State<MyAdd> createState() => _MySignUpState();
   
   
 }
 
-class _MySignUpState extends State<MySignUp> {
+class _MySignUpState extends State<MyAdd> {
   TextEditingController namec=TextEditingController();
   TextEditingController lastController=TextEditingController();
    TextEditingController ec=TextEditingController();
@@ -145,7 +153,7 @@ class _MySignUpState extends State<MySignUp> {
               child: Column(
                 children:<Widget> [
                   
-                    Padding(padding:EdgeInsets.symmetric(horizontal:150,vertical:10),
+                    Padding(padding:EdgeInsets.symmetric(horizontal:250,vertical:10),
                     child:
                     TextFormField(
                        controller: namec,
@@ -154,15 +162,23 @@ class _MySignUpState extends State<MySignUp> {
                       
                         labelText: "First Name",
                         hintText: "Enter First Name",
-                       
+                       labelStyle: TextStyle(
+                             color: FocusNodeName.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
       
-                         icon:Icon(Icons.man)
+                         icon:Icon(Icons.man,color: Colors.black,)
                       ),
                     ),
                     
                     ),
-                    Padding(padding:EdgeInsets.symmetric(horizontal:150,vertical:10),
+                    Padding(padding:EdgeInsets.symmetric(horizontal:250,vertical:10),
                     child:
                     TextFormField(
                        controller: lastController,
@@ -170,13 +186,22 @@ class _MySignUpState extends State<MySignUp> {
                       decoration: InputDecoration(
                         labelText: "Last Name",
                         hintText: "Enter Last Name",
+                         labelStyle: TextStyle(
+                             color: FocusNodeLastName.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
       
-                         icon:Icon(Icons.man)
+                         icon:Icon(Icons.man,color: Colors.black,)
                       ),
                     ),
                     
-                    ),Padding(padding:const EdgeInsets.symmetric(horizontal:150,vertical:10),
+                    ),Padding(padding:const EdgeInsets.symmetric(horizontal:250,vertical:10),
                     child:
                     TextFormField(
                        controller: ec,
@@ -188,15 +213,24 @@ class _MySignUpState extends State<MySignUp> {
                       // },
                       decoration: InputDecoration(
                         labelText: "Email",
-                       //hintText: ec.text,
+                         labelStyle: TextStyle(
+                             color: FocusNodeEmail.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
+                       hintText:'email@gmail.com',
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
                      
-                         icon:Icon(Icons.mail)
+                         icon:Icon(Icons.mail,color: Colors.black,)
                       ),
                     ),
                     
                     ),
-                  Padding(padding:EdgeInsets.symmetric(horizontal:150,vertical:10),
+                  Padding(padding:EdgeInsets.symmetric(horizontal:250,vertical:10),
                     child:
                     TextFormField(
                       controller: dateController,
@@ -204,9 +238,18 @@ class _MySignUpState extends State<MySignUp> {
                       decoration: InputDecoration(
                         labelText: "Date",
                         hintText: "mm/dd/yyyy",
+                         labelStyle: TextStyle(
+                             color: FocusNodeDate.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
                       
-                         icon:Icon(Icons.date_range)
+                         icon:Icon(Icons.date_range,color: Colors.black,)
                       ),
                     ),
                    
@@ -214,7 +257,7 @@ class _MySignUpState extends State<MySignUp> {
                     
                    
                     Padding(
-                       padding:EdgeInsets.symmetric(horizontal:50,vertical:10),
+                       padding:EdgeInsets.symmetric(horizontal:250,vertical:10),
                       child: Card(
                         
                                     elevation: 2.9,
@@ -229,7 +272,7 @@ class _MySignUpState extends State<MySignUp> {
           transform: GradientRotation(3.14/2))
         ),
                                     child: Padding(
-                                      padding:EdgeInsets.symmetric(horizontal:100,vertical:10),
+                                      padding:EdgeInsets.symmetric(horizontal:30,vertical:10),
                                       child: Column(
                                       
                       children: [
@@ -240,21 +283,48 @@ class _MySignUpState extends State<MySignUp> {
                             controller: vnoController,decoration: InputDecoration(
                           hintText: "Vehicle Number",
                           labelText: "Vehicle Number"  ,
-                           icon:Icon(Icons.format_list_numbered)                ),)),
+                           labelStyle: TextStyle(
+                             color: FocusNodeVno.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
+                           icon:Icon(Icons.format_list_numbered,color: Colors.black,)                ),)),
                           
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child:TextFormField( controller: vmakeController,decoration: InputDecoration(
                           hintText: "Vehicle Make",
                           labelText: "Vehicle Make" ,
-                           icon:Icon(Icons.car_rental)                 ),)),
+                           labelStyle: TextStyle(
+                             color: FocusNodeVmake.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
+                           icon:Icon(Icons.car_rental,color: Colors.black,)                 ),)),
                           
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child:TextFormField( controller: telController,decoration: InputDecoration(
                          hintText: "0000000000",
                           labelText: "Phone Number"  ,
-                           icon:Icon(Icons.phone)                ),))
+                           labelStyle: TextStyle(
+                             color: FocusNodePhone.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
+                           icon:Icon(Icons.phone,color: Colors.black,)                ),))
                       ]
                                       )
                                     )
@@ -265,7 +335,7 @@ class _MySignUpState extends State<MySignUp> {
                       //child: Text("Vehicle Inventory"),
                     ),
                     Padding(
-                      padding:EdgeInsets.symmetric(horizontal:50,vertical:10),
+                      padding:EdgeInsets.symmetric(horizontal:250,vertical:10),
                      child: Card(
                         
                                     elevation: 2.9,
@@ -290,14 +360,33 @@ class _MySignUpState extends State<MySignUp> {
                         padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
                         child:TextFormField( controller: kmsController,decoration: InputDecoration(
                         hintText: "Kms",
-                          labelText: "Kilometers"    
+
+                          labelText: "Kilometers"    ,
+                           labelStyle: TextStyle(
+                             color: FocusNodekms.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
                                         ),)
                           ),
                            Padding(
                         padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
                         child:TextFormField( controller: eController,decoration: InputDecoration(
                         hintText: "fuel",
-                          labelText: "fuel"    
+                          labelText: "fuel" ,
+                           labelStyle: TextStyle(
+                             color: FocusNodeFuel.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),   
                                         ),)
                           ),
                           
@@ -318,7 +407,7 @@ class _MySignUpState extends State<MySignUp> {
                       ),
                     ),),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
+                      padding: const EdgeInsets.symmetric(horizontal:250,vertical:10),
                       child: Card(
                         elevation: 2.9,
                                       shape: RoundedRectangleBorder(
@@ -340,6 +429,7 @@ class _MySignUpState extends State<MySignUp> {
                        
                              CheckboxListTile(
                                          value: checkboxValue1,
+                                          activeColor: Colors.black,
                                          onChanged: (bool? value) {
                                            setState(() {
                                              checkboxValue1 = value!;
@@ -354,6 +444,7 @@ class _MySignUpState extends State<MySignUp> {
                               const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue2,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue2 = value!;
@@ -367,6 +458,7 @@ class _MySignUpState extends State<MySignUp> {
                               const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue3,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue3 = value!;
@@ -379,6 +471,7 @@ class _MySignUpState extends State<MySignUp> {
                                 const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue4,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue4 = value!;
@@ -392,6 +485,7 @@ class _MySignUpState extends State<MySignUp> {
                                 const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue5,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue5 = value!;
@@ -404,6 +498,7 @@ class _MySignUpState extends State<MySignUp> {
                                 const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue6,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue6 = value!;
@@ -416,6 +511,7 @@ class _MySignUpState extends State<MySignUp> {
                                 const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue7,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue7= value!;
@@ -428,6 +524,7 @@ class _MySignUpState extends State<MySignUp> {
                               const Divider(height: 0),
                               CheckboxListTile(
                                 value: checkboxValue8,
+                                 activeColor: Colors.black,
                                 onChanged: (bool? value) {
                                   setState(() {
                                     checkboxValue8 = value!;
@@ -449,7 +546,7 @@ class _MySignUpState extends State<MySignUp> {
                         
                     ),
                      Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
+                      padding: const EdgeInsets.symmetric(horizontal:250,vertical:10),
                       child: Card(
                         elevation: 2.9,
                                       shape: RoundedRectangleBorder(
@@ -474,6 +571,15 @@ class _MySignUpState extends State<MySignUp> {
                           
                           hintText: "Regular:",
                           labelText: "Regular",
+                           labelStyle: TextStyle(
+                             color: FocusNodeRegular.hasFocus ? Colors.blue : Colors.grey.shade900
+                             ),
+                             
+                              focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.black
+        )
+      ),
                           
                         ),
                       )
@@ -488,7 +594,7 @@ class _MySignUpState extends State<MySignUp> {
     ) ,
     
                      Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
+                      padding: const EdgeInsets.symmetric(horizontal:250,vertical:10),
                       child: Card(
                         elevation: 2.9,
                                       shape: RoundedRectangleBorder(
@@ -530,6 +636,7 @@ class _MySignUpState extends State<MySignUp> {
           telController.text.toString(),kmsController.text.toString(),eController.text.toString(),regController.text.toString()):SubmitData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
           dateController.text.toString(),vnoController.text.toString(),vmakeController.text.toString(),
           telController.text.toString(),kmsController.text.toString(),eController.text.toString(),itemController.text.toString(),frontController.text.toString(),regController.text.toString());},
+          style: ElevatedButton.styleFrom(backgroundColor:Colors.black),
            child: Text(isEdit?'Edit':'Add',style: TextStyle(fontSize: 15),))    
     
     //  ElevatedButton(onPressed:SubmitData(),

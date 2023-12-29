@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:signin/addlabour.dart';
+import 'package:signin/addproduct.dart';
 import 'package:signin/fetchdata.dart';
+import 'package:signin/fetchproduct.dart';
 //import 'package:signin/mydrawer.dart';
 import 'package:signin/myhome.dart';
+import 'package:signin/fetchlabour.dart';
 import 'package:signin/regi.dart';
 import 'package:signin/routes.dart';
 import 'package:signin/signin.dart';
@@ -24,17 +28,24 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: MyHome(),
       debugShowCheckedModeBanner: false,
+
+      
       routes: {
         MyRoute.loginroute:(context) => MyLogin(),
-        MyRoute.signuproute:(context) => MySignUp(),
+        MyRoute.addroute:(context) => MyAdd(),
         MyRoute.signinroute:(context) => MySignIn(),
         MyRoute.fetchdataobj:(context)=> FetchDataClass(),
         MyRoute.homeroute:(context)=>MyHome(),
         MyRoute.viewobj:(context) => ViewPage(),
+        MyRoute.labourdobj:(context) => MyLabour(),
+        MyRoute.addlabourobj:(context) => MyLabourAdd(),
+        MyRoute.fetchprod:(context) => MyProduct(),
+        MyRoute.addprod:(context) => AddProduct()
       
       }
+      
     );
     
   }
-  
+   
 }
