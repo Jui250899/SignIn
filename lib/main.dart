@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         MyRoute.fetchdataobj:(context)=> FetchDataClass(),
         MyRoute.homeroute:(context)=>MyHome(),
         MyRoute.viewobj:(context) => ViewPage(),
-        MyRoute.labourdobj:(context) => MyLabour(),
+        MyRoute.fetchlabourobj:(context) => MyLabour(),
         MyRoute.addlabourobj:(context) => MyLabourAdd(),
         MyRoute.fetchprod:(context) => MyProduct(),
         MyRoute.addprod:(context) => AddProduct()

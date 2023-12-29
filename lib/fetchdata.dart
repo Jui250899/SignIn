@@ -96,7 +96,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
                   ),
                  Padding(
                    padding: const EdgeInsets.all(8.0),
-                   child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.labourdobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
+                   child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchlabourobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
                  ),
               Divider(thickness:0.5,color: Colors.orange,),TextButton(onPressed:  (){}, child: Text("Customer",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,)))
                 ],
@@ -149,7 +149,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
           child: ListView.builder(
             
             itemCount:1,itemBuilder: (context, index)  {
-              final data=vdetails[index] ;
+              //final data=vdetails[index] ;
               
              //final item=vdetails[index] as Map;
     

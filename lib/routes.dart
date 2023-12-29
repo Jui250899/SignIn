@@ -5,7 +5,7 @@ class MyRoute{
   static String signinroute="/logindata";
   static String fetchdataobj='/objfetch';
   static String viewobj='/objview';
-  static String labourdobj='/objlabour';
+  static String fetchlabourobj='/objlabour';
   static String addlabourobj='/objaddlabour';
   static String fetchprod='/objfetchprod';
   static String addprod="/objaddprod";

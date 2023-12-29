@@ -135,7 +135,8 @@ class _MySignUpState extends State<MyAdd> {
         
         backgroundColor: Colors.black,
          title: Text(
-          isEdit?'Edit':'Add data',
+          isEdit?'Edit data':'Add customer data',
+          style: TextStyle(fontSize: 25,color: Colors.orange),
       ),
       ),
       ),
@@ -784,7 +785,9 @@ Future<void>updateData(
    if(response.statusCode==200){
     print("updation success");
    showSuccessMessage("data updated successfully");
-
+setState(() {
+  Navigator.pushNamed(context,MyRoute.fetchdataobj);
+});
    }
    else{
     print("failed");

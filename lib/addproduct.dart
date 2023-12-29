@@ -62,9 +62,12 @@ class _MySignUpState extends State<AddProduct> {
           child: AppBar(
         
         backgroundColor: Colors.black,
-         title: Text(
-          isEdit?'Edit Product':'Add Product',style: TextStyle(color:Colors.orange,fontWeight: FontWeight.w400),
-      ),
+         title: Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+            isEdit?'Edit Product':'Add Product',style: TextStyle(color:Colors.orange,fontWeight: FontWeight.w400,fontSize:25),
+               ),
+         ),
       ),
       ),
     body: 
@@ -186,13 +189,16 @@ class _MySignUpState extends State<AddProduct> {
    final response =await http.post(uri,body:jsonEncode(body),
    headers:{'Content-type':'application/json'},
    );
-   final message = jsonDecode(response.body);
-     print(message);
+  //  final message = jsonDecode(response.body);
+  //    print(message);
 
-    if (message=='Product Added !!') {
+    if (response.body=='Product Added !!') {
       showSuccessMessage("Added");
       print('added successfully');
-      Navigator.pushNamed(context,MyRoute.addprod);
+      setState(() {
+         Navigator.pushNamed(context,MyRoute.fetchprod);
+      });
+     
     } else {
       print('failed');
     }
@@ -228,7 +234,9 @@ Future<void>updateData(
    if(response.statusCode==200){
     print("updation success");
    showSuccessMessage("data updated successfully");
-
+setState(() {
+  Navigator.pushNamed(context,MyRoute.fetchprod);
+});
    }
    else{
     print("failed");

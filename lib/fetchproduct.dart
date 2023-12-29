@@ -50,7 +50,7 @@ class _MyLabourState extends State<MyProduct> {
                   ),
                  Padding(
                    padding: const EdgeInsets.all(8.0),
-                   child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.labourdobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
+                   child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchlabourobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
                  ),
              Padding(
                padding: const EdgeInsets.all(7.0),
@@ -106,7 +106,7 @@ class _MyLabourState extends State<MyProduct> {
           child: ListView.builder(
             
             itemCount:1,itemBuilder: (context, index)  {
-              final data=productDetails[index] ;
+             
               
              //final item=vdetails[index] as Map;
     
