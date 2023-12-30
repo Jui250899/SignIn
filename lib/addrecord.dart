@@ -111,20 +111,22 @@ class _MySignUpState extends State<MyAdd> {
   bool checkboxValue6= false;
   bool checkboxValue7= false;
   bool checkboxValue8= false;
-  File? _image;
+  File? image;
+  final _picker=ImagePicker();
+  bool showspinner=false;
  Future getImage() async{
  
-    final image=await ImagePicker().pickImage(source: ImageSource.gallery);
-    if(image==null) return;
-    Uint8List imagebyte=await image!.readAsBytes();
-    String _base64=base64.encode(imagebyte);
+    final pickimage=await _picker.pickImage(source: ImageSource.gallery);
+    if(pickimage!=null){
+   image=File(pickimage.path);
 
-    print(_base64);
-    final imagetemp=File(image.path);
+    
+   // final imagetemp=File(pickimage.path);
     setState(() {
-      this._image=imagetemp;
+      image=File(pickimage!.path);
     });
-    print(imagetemp);
+  
+    }
  }
   @override
   Widget build(BuildContext context) {
@@ -167,7 +169,7 @@ class _MySignUpState extends State<MyAdd> {
                              color: FocusNodeName.hasFocus ? Colors.blue : Colors.grey.shade900
                              ),
                              
-                              focusedBorder: OutlineInputBorder(
+                              focusedBorder:OutlineInputBorder(
         borderSide: BorderSide(
           color: Colors.black
         )
@@ -608,27 +610,29 @@ class _MySignUpState extends State<MyAdd> {
                               gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
                               transform: GradientRotation(3.14/2))
                             ),
-                               child: Padding(
-                         padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
-                         child:Column(children: [
-                           _image==null ? Container():
-                          Image.asset('assets/images/mynew.jpg'),
                          
-                  //     Text("Vehicle Images"),
+//                                child: Padding(
+//                          padding: const EdgeInsets.symmetric(horizontal:50,vertical:10),
+//                          child:Column(children: [Container(child:image==null?
+//                           customButton(title: 'Pick image from device',icon: Icons.image_outlined,onClick: getImage)
+// :Text("Enter ")
+//                           //Container(child:Center(child:Image.file(File(image!.path).absolute,height:300,width: 300,)))
+//                           //Image.asset('assets/images/mynew.jpg'),
+                         
+//                   //     Text("Vehicle Images"),
                  
-                  //  ?Image.asset("assets/images/mynew.jpg",width: 100,height: 100,fit:BoxFit.cover)
-                  //  :Text("Sorry failed to upload file"),
+//                   //  ?Image.asset("asset==s/images/mynew.jpg",width: 100,height: 100,fit:BoxFit.cover)
+//                   //  :Text("Sorry failed to upload file"),
                       
                     
-                      customButton(title: 'Pick image from device',icon: Icons.image_outlined,onClick: getImage,
-
-                      
-                      ),        
-       
+                    
+//                           )
+                              
+                         
                            
-    ]
-      )
-    )
+//     ]
+//       )
+//     )
     )
     )
     ),    

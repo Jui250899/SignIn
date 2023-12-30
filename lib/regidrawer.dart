@@ -15,7 +15,9 @@ class regidrawer extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              
+            decoration: BoxDecoration(
+        color: Colors.black,
+      ),
               padding:EdgeInsets.zero,
               child:UserAccountsDrawerHeader(margin:EdgeInsets.zero,accountName: 
               Text("TATA MOTORS ",style: TextStyle(fontWeight: FontWeight.normal,color: Colors.black),),

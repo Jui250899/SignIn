@@ -60,14 +60,30 @@ class _MySignUpState extends State<AddProduct> {
       appBar:  PreferredSize(
           preferredSize: Size.fromHeight(100.0), // here the desired height
           child: AppBar(
-        
-        backgroundColor: Colors.black,
-         title: Padding(
-           padding: const EdgeInsets.all(8.0),
-           child: Text(
-            isEdit?'Edit Product':'Add Product',style: TextStyle(color:Colors.orange,fontWeight: FontWeight.w400,fontSize:25),
-               ),
+      
+    backgroundColor: Colors.black,
+         title: Row(
+          children: [
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Text(
+              isEdit?'Edit Product':'Add Product',style: TextStyle(color:Colors.orange,fontWeight: FontWeight.w400,fontSize:25),
+                 ),
+           ),]
          ),
+      //  titleSpacing: 00.0,
+      //   centerTitle: true,
+      //   toolbarHeight: 300.2,
+      //   toolbarOpacity: 0.8,
+        
+      //   shape: const RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.only(
+      //         bottomRight: Radius.circular(70),
+      //         bottomLeft: Radius.circular(70)),
+      //   ),
+      //   elevation: 0.00,
+      //   backgroundColor: Colors.black,
+         
       ),
       ),
     body: 
@@ -75,11 +91,15 @@ class _MySignUpState extends State<AddProduct> {
         
      child:Padding(
        padding: const EdgeInsets.symmetric(horizontal:0,vertical:0),
+       
        child: Center(
+        
          child: Container(
+          
                height: 850,
                  width:double.infinity,
             decoration:const BoxDecoration(
+              
               gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
               transform: GradientRotation(3.14/2))
             ),
@@ -88,7 +108,7 @@ class _MySignUpState extends State<AddProduct> {
                     child: Column(
                       children: [
                         
-                          Padding(padding:EdgeInsets.fromLTRB(450,330,450,0),
+                          Padding(padding:EdgeInsets.fromLTRB(450,200,450,0),
                           child:
                           TextFormField(
                              controller: Prodcontroller,
@@ -170,10 +190,6 @@ class _MySignUpState extends State<AddProduct> {
       )async
 {
   
-
- 
-
-
    final body={
    
     "Product":Product,

@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 
 import 'dart:convert';
-
+import 'package:carousel_slider/carousel_slider.dart';
 //import 'package:signin/adddata.dart';
 // ignore: depend_on_referenced_packages
 import 'package:signin/addrecord.dart';
@@ -25,7 +25,7 @@ class FetchDataClass extends StatefulWidget {
 }
 
 class _FetchDataClassState extends State<FetchDataClass> {
- 
+ //List<String> images=[];
 // Future getImage() async{
 //     final image=await ImagePicker().pickImage(source: ImageSource.gallery);
 //     if(image==null) return;
@@ -39,24 +39,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
 //     //   this._image=imagetemp;
 //     // });
 //   } File? _image;
- File? _image;
- Future getImage() async{
  
-    final image=await ImagePicker().pickImage(source: ImageSource.gallery);
-    if(image==null) return;
-    Uint8List imagebyte=await image!.readAsBytes();
-    String _base64=base64.encode(imagebyte);
-
-    print(_base64);
-    
-    final imagetemp=File(image.path);
-    setState(() {
-      
-      this._image=imagetemp;
-    });
-    print(imagetemp);
- }
-
      List vdetails=[];
      //var name=vdetails['name'];
 

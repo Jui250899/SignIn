@@ -54,16 +54,15 @@ var vehicledetails=jsonDecode(details);
    
     
         
-          SingleChildScrollView(
+         
          
           
-             child: Card(
+             Card(
                child: Container(
-                       width:1500,
-                       height: 1000,
+                       
                   decoration: BoxDecoration(
                      //borderRadius: BorderRadius.circular(100.0),
-                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 246, 177, 28),Color(0xFFFF9800)],
+                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Colors.orange.shade800,Colors.orange.shade400],
                     transform: GradientRotation(3.14/2))
                   ),
                 
@@ -73,141 +72,159 @@ var vehicledetails=jsonDecode(details);
                             child: Center( 
                              
                                 
-                                child: Column(
-                                  children:[
-                                    Center(
-                                      child: Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(5.0),
-                                              child: Text("User Name        :",style: TextStyle(fontWeight: FontWeight.w600,fontSize:17),),
-                                            )),
-                                        Padding(
-                                          padding: const EdgeInsets.only(left:60.0),
-                                          child: Text(vehicledetails['vdetails']['name'].toString(),style: TextStyle(fontSize:17),),
-                                        ),
-                                          
-                                           SizedBox(width: 4,),
-                                            Text(vehicledetails['vdetails']['last'].toString(),style: TextStyle(fontSize:17)),
-                                         ]
-                                      ),
-                                    ),
-                                      
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(260,20,240,20),
+                                  child: Card(
                                     
-                                  
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Row( children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Text("Email                  :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),)
-                                          ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(left:67.0),
-                                              child: Text(vehicledetails['vdetails']['email'].toString(),style: TextStyle(fontSize:17)),
+                                    elevation: 100,
+                                      child: Container(
+                                                       width:1500,
+                                                       height: 400,
+                                                  decoration: BoxDecoration(
+                                                     //borderRadius: BorderRadius.circular(100.0),
+                                                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange.shade400,Colors.orange,Colors.orange.shade800],
+                                                    transform: GradientRotation(3.14/2))
+                                                  ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(20,60,20,10),
+                                      child: Column(
+                                        children:[
+                                          Center(
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(5.0),
+                                                    child: Text("User Name        :",style: TextStyle(fontWeight: FontWeight.w600,fontSize:17),),
+                                                  )),
+                                              Padding(
+                                                padding: const EdgeInsets.only(left:60.0),
+                                                child: Text(vehicledetails['vdetails']['name'].toString(),style: TextStyle(fontSize:17),),
+                                              ),
+                                                
+                                                 SizedBox(width: 4,),
+                                                  Text(vehicledetails['vdetails']['last'].toString(),style: TextStyle(fontSize:17)),
+                                               ]
                                             ),
-                                          
-                                  ]
-                                      ),
-                                ),
-                                     Padding(
-                                       padding: const EdgeInsets.all(5.0),
-                                       child: Row( children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Text("Vno                     :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
                                           ),
-                                           Padding(
-                                             padding: const EdgeInsets.only(left:65.0),
-                                             child: Text(vehicledetails['vdetails']['Vno'].toString(),style: TextStyle(fontSize:17)),
-                                           ),
+                                            
+                                          
                                         
-                                                                     ]
-                                                                         ),
-                                     ),
-                                     Padding(
-                                       padding: const EdgeInsets.all(5.0),
-                                       child: Row( children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Text("Vmake                :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
-                                          ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("Email                  :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),)
+                                                ),
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(left:67.0),
+                                                    child: Text(vehicledetails['vdetails']['email'].toString(),style: TextStyle(fontSize:17)),
+                                                  ),
+                                                
+                                        ]
+                                            ),
+                                      ),
                                            Padding(
-                                             padding: const EdgeInsets.only(left:65.0),
-                                             child: Text(vehicledetails['vdetails']['Vmake'].toString(),style: TextStyle(fontSize:17)),
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("Vno                     :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                ),
+                                                 Padding(
+                                                   padding: const EdgeInsets.only(left:65.0),
+                                                   child: Text(vehicledetails['vdetails']['Vno'].toString(),style: TextStyle(fontSize:17)),
+                                                 ),
+                                              
+                                                                           ]
+                                                                               ),
                                            ),
+                                           Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("Vmake                :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                ),
+                                                 Padding(
+                                                   padding: const EdgeInsets.only(left:65.0),
+                                                   child: Text(vehicledetails['vdetails']['Vmake'].toString(),style: TextStyle(fontSize:17)),
+                                                 ),
+                                                
+                                                                           ]
+                                                                               ),
+                                           ),
+                                           Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("Telephone No    :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                ),
+                                                 Padding(
+                                                   padding: const EdgeInsets.only(left:64.0),
+                                                   child: Text(vehicledetails['vdetails']['tel'].toString(),style: TextStyle(fontSize:17)),
+                                                 ),
+                                                 
+                                                                           ]
+                                                                               ),
+                                           ),
+                                           Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("kms                     :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                ),
+                                                 Padding(
+                                                   padding: const EdgeInsets.only(left:65.0),
+                                                   child: Text(vehicledetails['vdetails']['kms'].toString(),style: TextStyle(fontSize:17)),
+                                                 ),
+                                                
+                                                                           ]
+                                                                               ),
+                                           ),
+                                           Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("Regular               :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:68.0),
+                                                  child: Text(vehicledetails['vdetails']['regular'].toString(),style: TextStyle(fontSize:17)),
+                                                ),
+                                                 ]),
+                                           ),
+                                                // Padding(
+                                                //   padding: const EdgeInsets.all(5.0),
+                                                //   child: Row( children: [
+                                                //                                         Padding(
+                                                //   padding: const EdgeInsets.only(left:500),
+                                                //   child: Text("Image:",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                //                                         ),
+                                                //                                          Padding(
+                                                //                                            padding: const EdgeInsets.only(left:8.0),
+                                                //                                            child: Text(vehicledetails['vdetails']['_image'].toString(),style: TextStyle(fontSize:17)),
+                                                //                                          ),
+                                                                                         
+                                                //                                 ]
+                                                //                                     ),
+                                                // ),
+                                      ]
                                           
-                                                                     ]
-                                                                         ),
-                                     ),
-                                     Padding(
-                                       padding: const EdgeInsets.all(5.0),
-                                       child: Row( children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Text("Telephone No    :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
-                                          ),
-                                           Padding(
-                                             padding: const EdgeInsets.only(left:64.0),
-                                             child: Text(vehicledetails['vdetails']['tel'].toString(),style: TextStyle(fontSize:17)),
-                                           ),
+                                                         
+                                          
                                            
-                                                                     ]
-                                                                         ),
-                                     ),
-                                     Padding(
-                                       padding: const EdgeInsets.all(5.0),
-                                       child: Row( children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Text("kms                     :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
-                                          ),
-                                           Padding(
-                                             padding: const EdgeInsets.only(left:65.0),
-                                             child: Text(vehicledetails['vdetails']['kms'].toString(),style: TextStyle(fontSize:17)),
-                                           ),
-                                          
-                                                                     ]
-                                                                         ),
-                                     ),
-                                     Padding(
-                                       padding: const EdgeInsets.all(5.0),
-                                       child: Row( children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:500),
-                                            child: Text("Regular               :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left:68.0),
-                                            child: Text(vehicledetails['vdetails']['regular'].toString(),style: TextStyle(fontSize:17)),
-                                          ),
-                                           ]),
-                                     ),
-                                          // Padding(
-                                          //   padding: const EdgeInsets.all(5.0),
-                                          //   child: Row( children: [
-                                          //                                         Padding(
-                                          //   padding: const EdgeInsets.only(left:500),
-                                          //   child: Text("Image:",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
-                                          //                                         ),
-                                          //                                          Padding(
-                                          //                                            padding: const EdgeInsets.only(left:8.0),
-                                          //                                            child: Text(vehicledetails['vdetails']['_image'].toString(),style: TextStyle(fontSize:17)),
-                                          //                                          ),
-                                                                                   
-                                          //                                 ]
-                                          //                                     ),
-                                          // ),
-                                ]
-                                    
-                                                   
-                                    
-                                     
-                                       
-                                        ),
-                              ),
+                                             
+                                              ),
+                                    ),
+                                  ),
+                                                              ),
+                                ),
                           ),
                           ),
              ),
@@ -219,6 +236,7 @@ var vehicledetails=jsonDecode(details);
                          //  child: Text(vehicledetails['vdetails']['last'].toString(),
                         
                          
+    
     
     );
                       
