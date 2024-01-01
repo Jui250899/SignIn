@@ -200,17 +200,20 @@ class _FetchDataClassState extends State<FetchDataClass> {
                         border: TableBorder.all(width:1),
                       columnSpacing:80,
                       columns: const [
-                         DataColumn(label: Text('USERid',style: TextStyle(fontWeight: FontWeight.w900),),),
+                         DataColumn(label: Text('USERID',style: TextStyle(fontWeight: FontWeight.w900),),),
                         DataColumn(label: Text('FIRST NAME',style: TextStyle(fontWeight: FontWeight.w900)),),
                         DataColumn(label: Text('LAST NAME',style: TextStyle(fontWeight: FontWeight.w900)),),
-                        DataColumn(label: Text('EMAIL',style: TextStyle(fontWeight: FontWeight.w900))),
+                        DataColumn(label: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('EMAIL',style: TextStyle(fontWeight: FontWeight.w900)),
+                        )),
                         // DataColumn(label: Text('DATE')),
                          DataColumn(label: Text('VNO',style: TextStyle(fontWeight: FontWeight.w900))),
                         // DataColumn(label: Text('VMAKE')),
                         // DataColumn(label: Text('TELEPHONE')),
                         // DataColumn(label: Text('KMS')),
                         // DataColumn(label: Text('E')),
-                        // DataColumn(label: Text('ITEM')),
+                      //DataColumn(label: Text('ITEM')),
                         // DataColumn(label: Text('REGULAR')),
                         // DataColumn(label: Text('IMAGES')),
                         DataColumn(label: Text('Action',style: TextStyle(fontWeight: FontWeight.w900))),
@@ -287,10 +290,10 @@ class _FetchDataClassState extends State<FetchDataClass> {
                       //         Text(data['E'].toString()),
                               
                       //       ),
-                      //        DataCell(
-                      //         Text(data['item'].toString()),
+                            //  DataCell(
+                            //   Text(data['item'].toString()),
                               
-                      //       ),
+                            // ),
                       //        DataCell(
                       //         Text(data['regular'].toString()),
                               

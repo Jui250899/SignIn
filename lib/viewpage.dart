@@ -62,7 +62,7 @@ var vehicledetails=jsonDecode(details);
                        
                   decoration: BoxDecoration(
                      //borderRadius: BorderRadius.circular(100.0),
-                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Colors.orange.shade800,Colors.orange.shade400],
+                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Colors.orange.shade800,Colors.orange.shade900],
                     transform: GradientRotation(3.14/2))
                   ),
                 
@@ -74,7 +74,8 @@ var vehicledetails=jsonDecode(details);
                                 
                                 child: Padding(
                                   padding: const EdgeInsets.fromLTRB(260,20,240,20),
-                                  child: Card(
+                                  child: Card(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
                                     
                                     elevation: 100,
                                       child: Container(
@@ -82,7 +83,7 @@ var vehicledetails=jsonDecode(details);
                                                        height: 400,
                                                   decoration: BoxDecoration(
                                                      //borderRadius: BorderRadius.circular(100.0),
-                                                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange.shade400,Colors.orange,Colors.orange.shade800],
+                                                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange.shade400,Colors.orange,Colors.orange.shade300,Colors.orange.shade900],
                                                     transform: GradientRotation(3.14/2))
                                                   ),
                                     child: Padding(

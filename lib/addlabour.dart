@@ -28,8 +28,8 @@ class MyLabourAdd extends StatefulWidget {
 }
 
 class _MySignUpState extends State<MyLabourAdd> {
-  TextEditingController labournamecontroller=TextEditingController();
-  TextEditingController labourpricecontroller=TextEditingController();
+TextEditingController labournamecontroller=TextEditingController();
+TextEditingController labourpricecontroller=TextEditingController();
    
    bool isEdit=false;
   @override
@@ -123,9 +123,9 @@ class _MySignUpState extends State<MyLabourAdd> {
                              ),
                               hintText: "Price",
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
-        borderSide: BorderSide(
-          color: Colors.black
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide(
+                              color: Colors.black
         )
       ),
                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),

@@ -31,9 +31,9 @@ class MyDrawer extends StatelessWidget {
                
             },
             
-            leading:Icon(CupertinoIcons.home),
-            iconColor: Colors.white,
-            title: Text("SignIn",style: TextStyle(color:Colors.white),),
+            leading:Icon(CupertinoIcons.arrow_left),
+            iconColor: Colors.black,
+            title: Text("SignIn",style: TextStyle(color:Colors.black,fontWeight:FontWeight.w900),),
             ),
             ListTile(onTap:(){
 

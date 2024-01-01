@@ -10,7 +10,7 @@ import 'package:signin/routes.dart';
 //import 'package:signin/regi.dart';
 //import 'package:signin/registration.dart';
 //import 'package:signin/routes.dart';
-
+String? item;
 FocusNode FocusNodeName= new FocusNode();
 FocusNode FocusNodeRegular= new FocusNode();
 FocusNode FocusNodeLastName= new FocusNode();
@@ -69,7 +69,7 @@ class _MySignUpState extends State<MyAdd> {
       final tel=vdata['tel'].toString();
       final kms=vdata['kms'].toString();
       final E=vdata['E'].toString();
-       // final item=vdata['item'].toString();
+      final item=vdata['item'].toString();
      final regular=vdata['regular'].toString();
        //final front=vdata['front'];
       // // final right=vdata['right'];
@@ -90,7 +90,7 @@ class _MySignUpState extends State<MyAdd> {
       telController.text=tel;
       kmsController.text=kms;
       eController.text=E;
-   //itemController.text=item;
+   itemController.text=item;
       regController.text=regular;
     // frontController.text=front;
       // rightController.text=right;
@@ -433,12 +433,15 @@ class _MySignUpState extends State<MyAdd> {
                              CheckboxListTile(
                                          value: checkboxValue1,
                                           activeColor: Colors.black,
+
                                          onChanged: (bool? value) {
                                            setState(() {
+                                        
                                              checkboxValue1 = value!;
+                                             // item=[value] ;                                      
                                            });
                                          },
-                                         title: const Text('Tom & Tommy'),
+                                         title: const Text('Jack & Tommy'),
                                         
                                        ),
                            
@@ -638,7 +641,7 @@ class _MySignUpState extends State<MyAdd> {
     ),    
            ElevatedButton(onPressed:(){isEdit?updateData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
           dateController.text.toString(),vnoController.text.toString(),vmakeController.text.toString(),
-          telController.text.toString(),kmsController.text.toString(),eController.text.toString(),regController.text.toString()):SubmitData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
+          telController.text.toString(),kmsController.text.toString(),eController.text.toString(),regController.text.toString(),itemController.text.toString()):SubmitData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
           dateController.text.toString(),vnoController.text.toString(),vmakeController.text.toString(),
           telController.text.toString(),kmsController.text.toString(),eController.text.toString(),itemController.text.toString(),frontController.text.toString(),regController.text.toString());},
           style: ElevatedButton.styleFrom(backgroundColor:Colors.black),
@@ -706,9 +709,9 @@ class _MySignUpState extends State<MyAdd> {
     "tel":tel,
     "kms":kms,
     "E":E,
-    "items":item,
-     "regular":regular,
-     "front":front,
+    "item":item,
+    "regular":regular,
+    "front":front,
     // "right":cright,
     // "left":cleft,
     // "rear":crear,
@@ -725,7 +728,7 @@ class _MySignUpState extends State<MyAdd> {
    headers:{'Content-type':'application/json'},
    );
    final message = jsonDecode(response.body);
-    // print(message);
+    print(message);
 
     if (message['Registered'] == "Successfully") {
       print('added successfully');
@@ -745,7 +748,7 @@ Future<void>updateData(
       String tel,
       String kms,
       String E,
-      //String item,
+      String item,
      // String front,
       String regular)async{
   final vdata=widget.vdata;
@@ -756,7 +759,6 @@ Future<void>updateData(
  final id=vdata['id'].toString();
  
    final body={
-   
     "name":name,
     "last":last,
     "email":email,
@@ -766,7 +768,7 @@ Future<void>updateData(
     "tel":tel,
     "kms":kms,
     "E":E,
-   // "items":item,
+   "item":item,
     "regular":regular,
     // "front":front,
     // "right":right,
