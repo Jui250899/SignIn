@@ -2,15 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import "package:http/http.dart" as http;
-
-
+import 'package:intl/intl.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:signin/routes.dart';
 //import 'package:signin/regi.dart';
 //import 'package:signin/registration.dart';
 //import 'package:signin/routes.dart';
-String? item;
+DateTime currentDate= DateTime.now();
 FocusNode FocusNodeName= new FocusNode();
 FocusNode FocusNodeRegular= new FocusNode();
 FocusNode FocusNodeLastName= new FocusNode();
@@ -29,10 +29,11 @@ class MyAdd extends StatefulWidget {
   @override
   State<MyAdd> createState() => _MySignUpState();
   
-  
 }
 
 class _MySignUpState extends State<MyAdd> {
+
+  
   TextEditingController namec=TextEditingController();
   TextEditingController lastController=TextEditingController();
    TextEditingController ec=TextEditingController();
@@ -55,7 +56,7 @@ class _MySignUpState extends State<MyAdd> {
    bool isEdit=false;
   @override
   void initState() {
-   
+    dateController.text = ""; 
     super.initState();
     final vdata=widget.vdata;
     if(vdata!=null){
@@ -70,7 +71,7 @@ class _MySignUpState extends State<MyAdd> {
       final kms=vdata['kms'].toString();
       final E=vdata['E'].toString();
       final item=vdata['item'].toString();
-     final regular=vdata['regular'].toString();
+      final regular=vdata['regular'].toString();
        //final front=vdata['front'];
       // // final right=vdata['right'];
       // // final left=vdata['left'];
@@ -90,7 +91,7 @@ class _MySignUpState extends State<MyAdd> {
       telController.text=tel;
       kmsController.text=kms;
       eController.text=E;
-   itemController.text=item;
+      itemController.text=item;
       regController.text=regular;
     // frontController.text=front;
       // rightController.text=right;
@@ -235,16 +236,18 @@ class _MySignUpState extends State<MyAdd> {
                     ),
                   Padding(padding:EdgeInsets.symmetric(horizontal:250,vertical:10),
                     child:
-                    TextFormField(
+                    TextField(
                       controller: dateController,
                     
                       decoration: InputDecoration(
                         labelText: "Date",
-                        hintText: "mm/dd/yyyy",
+                        //readOnly: true,  //set it true, so that user will not able to edit text
+              
+                        hintText: "mm/dd/yyyy",   
                          labelStyle: TextStyle(
                              color: FocusNodeDate.hasFocus ? Colors.blue : Colors.grey.shade900
                              ),
-                             
+                           
                               focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: Colors.black
@@ -536,7 +539,7 @@ class _MySignUpState extends State<MyAdd> {
                                     checkboxValue8 = value!;
                                   });
                                 },
-                                title: const Text('Maths no fields'),
+                                title: const Text('Mats no fields'),
                                 
                                 
                               ),
@@ -639,11 +642,18 @@ class _MySignUpState extends State<MyAdd> {
     )
     )
     ),    
-           ElevatedButton(onPressed:(){isEdit?updateData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
+           ElevatedButton(onPressed:(){isEdit
+           ?updateData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
           dateController.text.toString(),vnoController.text.toString(),vmakeController.text.toString(),
-          telController.text.toString(),kmsController.text.toString(),eController.text.toString(),regController.text.toString(),itemController.text.toString()):SubmitData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
+          telController.text.toString(),kmsController.text.toString(),eController.text.toString(),regController.text.toString(),
+          checkboxValue1,checkboxValue2,checkboxValue3,checkboxValue4,checkboxValue5,checkboxValue6
+          ,checkboxValue7,checkboxValue8)
+          :SubmitData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
           dateController.text.toString(),vnoController.text.toString(),vmakeController.text.toString(),
-          telController.text.toString(),kmsController.text.toString(),eController.text.toString(),itemController.text.toString(),frontController.text.toString(),regController.text.toString());},
+          telController.text.toString(),kmsController.text.toString(),eController.text.toString(),itemController.text.toString(),
+          frontController.text.toString(),
+          regController.text.toString(),checkboxValue1,checkboxValue2,checkboxValue3,checkboxValue4,checkboxValue5,checkboxValue6
+          ,checkboxValue7,checkboxValue8);},
           style: ElevatedButton.styleFrom(backgroundColor:Colors.black),
            child: Text(isEdit?'Edit':'Add',style: TextStyle(fontSize: 15),))    
     
@@ -674,11 +684,54 @@ class _MySignUpState extends State<MyAdd> {
       String E,
       String item,
       String front,
-      String regular
+      String regular,
+      bool checkboxValue1,
+      bool checkboxValue2,
+      bool checkboxValue3,
+      bool checkboxValue4,
+      bool checkboxValue5,
+      bool checkboxValue6,
+      bool checkboxValue7,
+      bool checkboxValue8,
+
       )async
 {
   
 
+ List items=[];
+ if(checkboxValue1 ==true){
+  items.add('Jack and Tommy');
+
+ }
+ if(checkboxValue2 ==true){
+  items.add('Stepney');
+
+ }
+ if(checkboxValue3 ==true){
+  items.add('Tool Kit');
+
+ }
+ if(checkboxValue4 ==true){
+  items.add('Tape');
+
+ }
+ if(checkboxValue5 ==true){
+  items.add('Battery');
+
+
+ }
+ if(checkboxValue6 ==true){
+  items.add('Mirror LH');
+
+ }
+  if(checkboxValue7 ==true){
+  items.add('Mirror RH');
+
+ }
+ if(checkboxValue8 ==true){
+  items.add('mats');
+
+ }
  
 //   final name=namec.text;
 //   final last=lastController.text;
@@ -709,14 +762,11 @@ class _MySignUpState extends State<MyAdd> {
     "tel":tel,
     "kms":kms,
     "E":E,
-    "item":item,
     "regular":regular,
+    "item":items,
+    
     "front":front,
-    // "right":cright,
-    // "left":cleft,
-    // "rear":crear,
-    // "dashboard":cdash,
-    // "dickey":cdickey,
+    
 
 
    };
@@ -748,9 +798,52 @@ Future<void>updateData(
       String tel,
       String kms,
       String E,
-      String item,
+     
      // String front,
-      String regular)async{
+      String regular,
+       bool checkboxValue1,
+      bool checkboxValue2,
+      bool checkboxValue3,
+      bool checkboxValue4,
+      bool checkboxValue5,
+      bool checkboxValue6,
+      bool checkboxValue7,
+      bool checkboxValue8,
+      )async{
+        List items=[];
+        if(checkboxValue1 ==true){
+  items.add('Jack and Tommy');
+
+ }
+ if(checkboxValue2 ==true){
+  items.add('Stepney');
+
+ }
+ if(checkboxValue3 ==true){
+  items.add('Tool Kit');
+
+ }
+ if(checkboxValue4 ==true){
+  items.add('Tape');
+
+ }
+ if(checkboxValue5 ==true){
+  items.add('Battery');
+
+
+ }
+ if(checkboxValue6 ==true){
+  items.add('Mirror LH');
+
+ }
+  if(checkboxValue7 ==true){
+  items.add('Mirror RH');
+
+ }
+ if(checkboxValue8 ==true){
+  items.add('mats');
+
+ }
   final vdata=widget.vdata;
   if(vdata==null){
     print('you can not update without todo data');
@@ -768,7 +861,7 @@ Future<void>updateData(
     "tel":tel,
     "kms":kms,
     "E":E,
-   "item":item,
+   "item":items,
     "regular":regular,
     // "front":front,
     // "right":right,
@@ -870,3 +963,14 @@ Widget customButton({
 
 
 // }
+ Future<void> _selectDate(BuildContext context) async {
+  final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: currentDate,
+      firstDate: DateTime(2015),
+      lastDate: DateTime(2050));
+  if (pickedDate != null && pickedDate != currentDate){}
+    // setState(() {
+    //   currentDate = pickedDate;
+    // });
+}

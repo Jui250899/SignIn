@@ -122,8 +122,8 @@ class _FetchDataClassState extends State<FetchDataClass> {
         
              width:double.infinity,
         decoration:const BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
-          transform: GradientRotation(3.14/2))
+          gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Color.fromARGB(255, 240, 173, 39),Colors.orange],
+          transform: GradientRotation(3.14/6))
         ),
        child:RefreshIndicator(
         
@@ -311,30 +311,43 @@ class _FetchDataClassState extends State<FetchDataClass> {
                               
                            
                              DataCell(
-                             ElevatedButton(child: Text('Edit'),onPressed: () =>{
-                              navigateToEdit(data),
-                             },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
+                              InkWell(
+  child: Icon(Icons.edit),
+  onTap: (){  navigateToEdit(data);
+      //action code when clicked
+      print("The icon is clicked");
+  },
+)
+                        //      ElevatedButton(child: Text('Edit'),onPressed: () =>{
+                        //       navigateToEdit(data),
+                        //      },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
                        
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),),
-                             ),
+                        // textStyle: TextStyle(
+                        // fontSize: 12,
+                        // fontWeight: FontWeight.bold)),),
+                             
                               
-                           
+                             ),
                            
                                 
                              
-                            DataCell
-                            (ElevatedButton(child: Text('Delete'),onPressed: () =>{
-                              deleteById(id)
-                             },
-                             style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
+                            DataCell( InkWell(
+  child: Icon(Icons.delete,color: const Color.fromARGB(255, 186, 4, 4)),
+  onTap: (){   deleteById(id);
+      //action code when clicked
+      print("The icon is clicked");
+  },
+)),
+                        //     (ElevatedButton(child: Text('Delete'),onPressed: () =>{
+                        //       deleteById(id)
+                        //      },
+                        //      style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
                        
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),)
+                        // textStyle: TextStyle(
+                        // fontSize: 12,
+                        // fontWeight: FontWeight.bold)),)
                               
-                            ),
+                                
                         //      DataCell(
                         //      ElevatedButton(child: Text('View'),onPressed: (){
                         //     fetchbyId(id);

@@ -62,7 +62,7 @@ var vehicledetails=jsonDecode(details);
                        
                   decoration: BoxDecoration(
                      //borderRadius: BorderRadius.circular(100.0),
-                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Colors.orange.shade800,Colors.orange.shade900],
+                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Colors.orange.shade800,Colors.orange.shade400],
                     transform: GradientRotation(3.14/2))
                   ),
                 
@@ -77,13 +77,13 @@ var vehicledetails=jsonDecode(details);
                                   child: Card(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                     clipBehavior: Clip.antiAliasWithSaveLayer,
                                     
-                                    elevation: 100,
+                                    elevation:10,
                                       child: Container(
                                                        width:1500,
                                                        height: 400,
                                                   decoration: BoxDecoration(
                                                      //borderRadius: BorderRadius.circular(100.0),
-                                                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange.shade400,Colors.orange,Colors.orange.shade300,Colors.orange.shade900],
+                                                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange.shade300,Color.fromARGB(255, 245, 186, 26),Color.fromARGB(255, 237, 206, 5)],
                                                     transform: GradientRotation(3.14/2))
                                                   ),
                                     child: Padding(
@@ -195,21 +195,33 @@ var vehicledetails=jsonDecode(details);
                                                   child: Text("Regular               :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsets.only(left:68.0),
+                                                  padding: const EdgeInsets.only(left:65.0),
                                                   child: Text(vehicledetails['vdetails']['regular'].toString(),style: TextStyle(fontSize:17)),
                                                 ),
                                                  ]),
                                            ),
+                                           Padding(
+                                             padding: const EdgeInsets.all(5.0),
+                                             child: Row( children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left:150),
+                                                  child: Text("Items                   :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                ),
+                                                 Padding(
+                                                   padding: const EdgeInsets.only(left:60.0),
+                                                   child: Text(vehicledetails['vdetails']['item'].toString(),style: TextStyle(fontSize:17)),
+                                                 ),
+                                                
                                                 // Padding(
                                                 //   padding: const EdgeInsets.all(5.0),
                                                 //   child: Row( children: [
                                                 //                                         Padding(
-                                                //   padding: const EdgeInsets.only(left:500),
-                                                //   child: Text("Image:",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                //   padding: const EdgeInsets.only(left:300),
+                                                //   child: Text("Items:",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
                                                 //                                         ),
                                                 //                                          Padding(
                                                 //                                            padding: const EdgeInsets.only(left:8.0),
-                                                //                                            child: Text(vehicledetails['vdetails']['_image'].toString(),style: TextStyle(fontSize:17)),
+                                                //                                            child: Text(vehicledetails['vdetails']['item'].toString(),style: TextStyle(fontSize:17)),
                                                 //                                          ),
                                                                                          
                                                 //                                 ]
@@ -222,8 +234,9 @@ var vehicledetails=jsonDecode(details);
                                            
                                              
                                               ),
-                                    ),
-                                  ),
+                                    ),]
+                                      )
+                                    )
                                                               ),
                                 ),
                           ),
@@ -239,6 +252,7 @@ var vehicledetails=jsonDecode(details);
                          
     
     
+    )
     );
                       
               
