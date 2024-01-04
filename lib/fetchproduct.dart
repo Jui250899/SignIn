@@ -215,29 +215,28 @@ class _MyLabourState extends State<MyProduct> {
                            
                            
                              DataCell(
-                             ElevatedButton(child: Text('Edit'),onPressed: () =>{
-                              navigateToEditProduct(data),
-                             },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
-                       
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),),
+                             InkWell(
+  child: Icon(Icons.edit),
+  onTap: (){  navigateToEditProduct(data);
+      //action code when clicked
+      print("The icon is clicked");
+  },
+)
                              ),
                               
                            
                            
                                 
                              
-                            DataCell
-                            (ElevatedButton(child: Text('Delete'),onPressed: () =>{
-                              deleteProductById(id)
-                             },
-                             style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
-                       
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),)
-                              
+                            DataCell(
+                            InkWell(
+                            child: Icon(Icons.delete,color: Color.fromARGB(255, 151, 3, 3)),
+                            onTap: (){   deleteProductById(id);
+      //action code when clicked
+                            print("The icon is clicked");
+  },
+)
+
                             ),
                         //      DataCell(
                         //      ElevatedButton(child: Text('View'),onPressed: (){

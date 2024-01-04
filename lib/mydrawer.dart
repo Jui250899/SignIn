@@ -15,11 +15,11 @@ class MyDrawer extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              
+            decoration: BoxDecoration(color: Colors.black),
               padding:EdgeInsets.zero,
-              child:UserAccountsDrawerHeader(margin:EdgeInsets.zero,accountName: 
-              Text("TATA MOTORS ",style: TextStyle(fontWeight: FontWeight.normal,color: Colors.black),),
-              accountEmail:Text("tataservices@gmail.com",style: TextStyle(fontWeight: FontWeight.normal,color: Colors.black)
+              child:UserAccountsDrawerHeader(decoration: BoxDecoration(color: Colors.black),     margin:EdgeInsets.zero,accountName: 
+              Text("TATA MOTORS ",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange),),
+              accountEmail:Text("tataservices@gmail.com",style: TextStyle(fontWeight: FontWeight.w900,color: Colors.orange)
               ), currentAccountPicture: CircleAvatar(
                  backgroundImage: NetworkImage(imageUrl),
                  backgroundColor: Colors.deepOrange,

@@ -539,7 +539,7 @@ class _MySignUpState extends State<MyAdd> {
                                     checkboxValue8 = value!;
                                   });
                                 },
-                                title: const Text('Mats no fields'),
+                                title: const Text('Mats'),
                                 
                                 
                               ),
@@ -593,8 +593,7 @@ class _MySignUpState extends State<MyAdd> {
                         ),
                       )
                          ]
-                
-    )
+   )
      )
       )
               )
@@ -603,9 +602,9 @@ class _MySignUpState extends State<MyAdd> {
     ) ,
     
                      Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:250,vertical:10),
+                      padding: const EdgeInsets.symmetric(horizontal:250,vertical:4),
                       child: Card(
-                        elevation: 2.9,
+                        elevation:0,
                                       shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(2),
                                       side: const BorderSide(width: 1, color: Colors.black)),
@@ -641,7 +640,8 @@ class _MySignUpState extends State<MyAdd> {
 //     )
     )
     )
-    ),    
+    ), 
+    SizedBox(height:0,),   
            ElevatedButton(onPressed:(){isEdit
            ?updateData(namec.text.toString(),lastController.text.toString(),ec.text.toString(),
           dateController.text.toString(),vnoController.text.toString(),vmakeController.text.toString(),

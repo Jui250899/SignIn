@@ -102,7 +102,7 @@ class _FetchDataClassState extends State<FetchDataClass> {
         titleSpacing: 00.0,
         centerTitle: true,
         toolbarHeight: 200.2,
-        toolbarOpacity: 0.8,
+        toolbarOpacity: 0.9,
         
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -332,10 +332,10 @@ class _FetchDataClassState extends State<FetchDataClass> {
                                 
                              
                             DataCell( InkWell(
-  child: Icon(Icons.delete,color: const Color.fromARGB(255, 186, 4, 4)),
-  onTap: (){   deleteById(id);
+                            child: Icon(Icons.delete,color: Color.fromARGB(255, 193, 12, 12)),
+                            onTap: (){   deleteById(id);
       //action code when clicked
-      print("The icon is clicked");
+                            print("The icon is clicked");
   },
 )),
                         //     (ElevatedButton(child: Text('Delete'),onPressed: () =>{

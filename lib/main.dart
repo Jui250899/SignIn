@@ -8,7 +8,7 @@ import 'package:signin/myhome.dart';
 import 'package:signin/fetchlabour.dart';
 import 'package:signin/regi.dart';
 import 'package:signin/routes.dart';
-import 'package:signin/signin.dart';
+import 'package:signin/signup.dart';
 import 'package:signin/addrecord.dart';
 import 'package:signin/viewpage.dart';
 void main()
@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 
       
-      routes: {
+    routes: {
         MyRoute.loginroute:(context) => MyLogin(),
         MyRoute.addroute:(context) => MyAdd(),
         MyRoute.signinroute:(context) => MySignIn(),

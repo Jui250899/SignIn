@@ -214,28 +214,35 @@ class _MyLabourState extends State<MyLabour> {
                            
                            
                              DataCell(
-                             ElevatedButton(child: Text('Edit'),onPressed: () =>{
-                              navigateToEditLabour(data),
-                             },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
-                       
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),),
+                              InkWell(
+  child: Icon(Icons.edit),
+  onTap: (){  navigateToEditLabour(data);
+      //action code when clicked
+      print("The icon is clicked");
+  },
+)
                              ),
                               
                            
                            
                                 
                              
-                            DataCell
-                            (ElevatedButton(child: Text('Delete'),onPressed: () =>{
-                              deleteLabourById(id)
-                             },
-                             style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
+                            DataCell(
+                              InkWell(
+  child: Icon(Icons.delete,color: Color.fromARGB(255, 149, 9, 9)),
+  onTap: (){   deleteLabourById(id);
+      //action code when clicked
+      print("The icon is clicked");
+  },
+)
+                        //     (ElevatedButton(child: Text('Delete'),onPressed: () =>{
+                        //       deleteLabourById(id)
+                        //      },
+                        //      style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
                        
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),)
+                        // textStyle: TextStyle(
+                        // fontSize: 12,
+                        // fontWeight: FontWeight.bold)),)
                               
                             ),
                         //      DataCell(

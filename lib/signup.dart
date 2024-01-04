@@ -62,6 +62,7 @@ class _MySignUpState extends State<MySignIn> {
     body: Padding(
           padding: const EdgeInsets.symmetric(horizontal:0,vertical:0),
           child: Container(
+            //width:300,
              width:double.infinity,
         decoration:const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
@@ -80,7 +81,7 @@ class _MySignUpState extends State<MySignIn> {
                   
                   
                   ),
-                    Padding(padding:EdgeInsets.fromLTRB(90,160,90,0),
+                    Padding(padding:EdgeInsets.fromLTRB(250,160,250,0),
                     child:
                 TextFormField(
                   controller: namec,
@@ -96,13 +97,13 @@ class _MySignUpState extends State<MySignIn> {
                    
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
 
-                     icon:Icon(Icons.man,color: Colors.black,)
+                     icon:Icon(Icons.person,color: Colors.black,)
                   ),
                 ),
                 
                 ),
                  
-               Padding(padding:EdgeInsets.fromLTRB(90,20,90,0),
+               Padding(padding:EdgeInsets.fromLTRB(250,20,250,0),
                 child:
                 TextFormField(
                   controller: ec,
@@ -127,7 +128,7 @@ class _MySignUpState extends State<MySignIn> {
                 
                 ),
               
-                Padding(padding:EdgeInsets.fromLTRB(90,20,90,0),
+                Padding(padding:EdgeInsets.fromLTRB(250,20,250,0),
                 child:
                TextFormField(
                 controller: pw,
@@ -173,7 +174,7 @@ decoration: InputDecoration(
                )
                
                 ),
-                Padding(padding:EdgeInsets.fromLTRB(90,20,90,0),
+                Padding(padding:EdgeInsets.fromLTRB(250,20,250,0),
                 child:
                 TextFormField(
                   controller: cpw,
@@ -218,12 +219,12 @@ decoration: InputDecoration(
                
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed:(){
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton(child: Text("Sign Up"),onPressed:(){
                     if(_MyFormKey.currentState!.validate()){
-                      signUpscreen(namec.text.toString(),ec.text.toString(),pw.text.toString(),cpw.text.toString());}
+                      signUpscreen(namec.text.toString(),ec.text.toString(),pw.text.toString(),cpw.text.toString());};
                       
-                   } , child: Text("Sign Up")),
+                   },style: ElevatedButton.styleFrom(backgroundColor: Colors.black)),
                 )
                
     

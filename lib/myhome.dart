@@ -18,10 +18,12 @@ class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar:PreferredSize(
           preferredSize: Size.fromHeight(200.0), // here the desired height
           child: AppBar(
         backgroundColor: Colors.black,
+        
       //  title: Padding(
           // padding: const EdgeInsets.only(left: 1000),
           // child: ElevatedButton(onPressed:
@@ -43,6 +45,7 @@ class _MyHomeState extends State<MyHome> {
      
       body:
         Container(
+          
           width:double.infinity,
           decoration:const BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
@@ -105,8 +108,8 @@ class _MyHomeState extends State<MyHome> {
             ),
           ),
                 //  Padding(
-                //      padding: const EdgeInsets.all(7),
-                //   child: Image.asset("assets/images/setting.png",fit:BoxFit.fill),
+                //      padding: const EdgeInsets.only(left: 100),
+                //   child: Image.asset("assets/images/carnew.jpg",fit:BoxFit.fill),
                 //   ),
                 
                  

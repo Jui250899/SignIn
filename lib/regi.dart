@@ -76,7 +76,7 @@ void showErrorMessage(String msg){
         body:  Container(
              width:double.infinity,
         decoration:const BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 247, 126, 5),Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
+          gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.white,Colors.white24,Colors.white30],
           transform: GradientRotation(3.14/2))
         ),
             child:Form(
@@ -85,17 +85,17 @@ void showErrorMessage(String msg){
               padding: const EdgeInsets.symmetric(vertical: 0,horizontal: 0),
             
                 child: Container(
-                  decoration:BoxDecoration(
+                  // decoration:BoxDecoration(
                    
-                    borderRadius:BorderRadius.only(topLeft: Radius.circular(60),
-                    ),),
+                  //   //borderRadius:BorderRadius.only(topLeft: Radius.circular(0),
+                  //   ),),
                   
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(350,150,350,200),
-                      child: Card(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                      child: Card(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
                         clipBehavior:Clip.antiAliasWithSaveLayer,
                       
-                        elevation: 500,
+                        elevation: 100,
                          child: Container(
                        
                   decoration: BoxDecoration(
