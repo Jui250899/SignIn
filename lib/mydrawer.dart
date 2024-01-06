@@ -9,20 +9,20 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSko83aLfknBdvmIIyu7hXpsjxrxKj3vdoySZI0QzLA22t0IKMNRKiBJy9DwGuivWEw54g&usqp=CAU";
-    return Drawer(backgroundColor: Colors.orangeAccent,
+    return Drawer(//backgroundColor: Colors.orangeAccent,
       child: Container(
-        color: Color.fromARGB(255, 247, 142, 4),
+        color: Colors.orange.shade700,
         child: ListView(
           children: [
             DrawerHeader(
             decoration: BoxDecoration(color: Colors.black),
               padding:EdgeInsets.zero,
               child:UserAccountsDrawerHeader(decoration: BoxDecoration(color: Colors.black),     margin:EdgeInsets.zero,accountName: 
-              Text("TATA MOTORS ",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange),),
-              accountEmail:Text("tataservices@gmail.com",style: TextStyle(fontWeight: FontWeight.w900,color: Colors.orange)
+              Text("TATA MOTORS ",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange.shade400),),
+              accountEmail:Text("tataservices@gmail.com",style: TextStyle(fontWeight: FontWeight.w900,color: Colors.orange.shade400)
               ), currentAccountPicture: CircleAvatar(
                  backgroundImage: NetworkImage(imageUrl),
-                 backgroundColor: Colors.deepOrange,
+                 backgroundColor: Colors.white,
               )
             ),
             ),
@@ -33,7 +33,7 @@ class MyDrawer extends StatelessWidget {
             
             leading:Icon(CupertinoIcons.arrow_left),
             iconColor: Colors.black,
-            title: Text("SignIn",style: TextStyle(color:Colors.black,fontWeight:FontWeight.w900),),
+            title: Text("SignIn",style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold),),
             ),
             ListTile(onTap:(){
 

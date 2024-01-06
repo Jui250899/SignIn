@@ -135,7 +135,9 @@ class _MySignUpState extends State<MyAdd> {
       appBar:  PreferredSize(
           preferredSize: Size.fromHeight(100.0), // here the desired height
           child: AppBar(
-        
+           iconTheme: IconThemeData(
+    color: Colors.orange, 
+      ),
         backgroundColor: Colors.black,
          title: Text(
           isEdit?'Edit data':'Add customer data',

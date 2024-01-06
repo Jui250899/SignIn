@@ -9,4 +9,5 @@ class MyRoute{
   static String addlabourobj='/objaddlabour';
   static String fetchprod='/objfetchprod';
   static String addprod="/objaddprod";
+  static String fetchcustomer='fetchcust';
 }

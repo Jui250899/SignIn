@@ -181,7 +181,7 @@ var vehicledetails=jsonDecode(details);
                                                 ),
                                                  Padding(
                                                    padding: const EdgeInsets.only(left:65.0),
-                                                   child: Text(vehicledetails['vdetails']['kms'].toString(),style: TextStyle(fontSize:17)),
+                                                   child: Text(vehicledetails['vdetails']['kms'].toString()+'kms/'+vehicledetails['vdetails']['E'].toString(),style: TextStyle(fontSize:17)),
                                                  ),
                                                 
                                                                            ]
@@ -192,10 +192,10 @@ var vehicledetails=jsonDecode(details);
                                              child: Row( children: [
                                                 Padding(
                                                   padding: const EdgeInsets.only(left:150),
-                                                  child: Text("Regular               :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
+                                                  child: Text("Customer complaints :",style: TextStyle(fontWeight: FontWeight.w800,fontSize:17),),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsets.only(left:65.0),
+                                                  padding: const EdgeInsets.only(left:18.0),
                                                   child: Text(vehicledetails['vdetails']['regular'].toString(),style: TextStyle(fontSize:17)),
                                                 ),
                                                  ]),

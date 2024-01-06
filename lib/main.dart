@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:signin/addlabour.dart';
 import 'package:signin/addproduct.dart';
+import 'package:signin/fetchcustomer.dart';
 import 'package:signin/fetchdata.dart';
 import 'package:signin/fetchproduct.dart';
 //import 'package:signin/mydrawer.dart';
 import 'package:signin/myhome.dart';
 import 'package:signin/fetchlabour.dart';
-import 'package:signin/regi.dart';
+import 'package:signin/login.dart';
 import 'package:signin/routes.dart';
 import 'package:signin/signup.dart';
 import 'package:signin/addrecord.dart';
@@ -40,7 +41,8 @@ class _MyAppState extends State<MyApp> {
         MyRoute.fetchlabourobj:(context) => MyLabour(),
         MyRoute.addlabourobj:(context) => MyLabourAdd(),
         MyRoute.fetchprod:(context) => MyProduct(),
-        MyRoute.addprod:(context) => AddProduct()
+        MyRoute.addprod:(context) => AddProduct(),
+       // MyRoute.fetchcustomer:(context) => fetchcustomer()
       
       }
       

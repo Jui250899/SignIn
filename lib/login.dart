@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:signin/addrecord.dart';
 import 'package:signin/regidrawer.dart';
+import 'dart:ui' as ui;
 
 import 'package:signin/routes.dart';
 TextEditingController pw=TextEditingController();
@@ -61,10 +63,21 @@ void showErrorMessage(String msg){
   final snackbar=SnackBar(content: Text(msg,style:const TextStyle(color: Colors.white),),backgroundColor: Colors.red,);
   ScaffoldMessenger.of(context).showSnackBar(snackbar);
 }
- 
+
+
 
   @override
   Widget build(BuildContext context) {
+
+  // ignore: undefined_prefixed_name
+  ui.platformViewRegistry.registerViewFactory(
+      'hello-html',
+      (int viewId) => IFrameElement()
+        ..width = '640'
+        ..height = '360'
+        ..src = 'https://www.youtube.com/embed/xg4S67ZvsRs'
+        ..style.border = 'none');
+
     return Scaffold(
       
       appBar:AppBar(
@@ -100,12 +113,15 @@ void showErrorMessage(String msg){
                        
                   decoration: BoxDecoration(
                      //borderRadius: BorderRadius.circular(100.0),
-                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Colors.orange,Colors.orange.shade800,Colors.orange.shade700],
+                    gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 12, 201, 167),Color.fromARGB(255, 9, 226, 230),Colors.cyanAccent.shade700],
                     transform: GradientRotation(3.14/2))
                   ),
                 
                         child: Column(
                           children: [
+                          //  const HtmlElementView(viewType: 'hello-html', creationParams: {
+                          //   'src': 'https://www.youtube.com/watch?v=KAJAaWWsXKg'
+                          //  }, ),
                             Container(
                               padding:EdgeInsets.symmetric(horizontal:100,vertical: 50),
                               decoration: BoxDecoration(
@@ -114,6 +130,8 @@ void showErrorMessage(String msg){
                                
                                 )
                               ),
+
+                              //Image.network('https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg'),
                             
                                Padding(padding:EdgeInsets.symmetric(horizontal:100),
                                 child: TextFormField(cursorColor: Colors.black,
@@ -215,7 +233,7 @@ void showErrorMessage(String msg){
                                   
                                  //Navigator.pushNamed(context,loginscreen(ec.text.toString(), pw.text.toString()));
                                 
-                                  child: Text("Login"),style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+                                  child: Text("Login",style: TextStyle(color:Colors.white),),style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
                                 ),
                         ),
                           Padding(padding:EdgeInsets.symmetric(horizontal:140,vertical: 50),
@@ -229,8 +247,8 @@ void showErrorMessage(String msg){
                              
                            
                               ),Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                 child: ElevatedButton( child: Text("Sign Up"),onPressed: (){
+                                padding: const EdgeInsets.all(15.0),
+                                 child: ElevatedButton( child: Text("Sign Up",style: TextStyle(color: Colors.white),),onPressed: (){
                       
                       Navigator.pushNamed(context,MyRoute.signinroute);
                               
@@ -273,7 +291,5 @@ void showErrorMessage(String msg){
     );
   }
  
-}
-
-
+} 
 

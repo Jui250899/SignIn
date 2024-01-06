@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signin/regi.dart';
+import 'package:signin/login.dart';
 import 'package:signin/addrecord.dart';
 import 'package:signin/routes.dart';
 import 'package:http/http.dart' as http;

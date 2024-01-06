@@ -17,20 +17,20 @@ import 'package:signin/routes.dart';
 TextEditingController SearchController=TextEditingController();
 FocusNode FocusNodeSearch= new FocusNode();
  var details;
-class FetchDataClass extends StatefulWidget {
-  const FetchDataClass({super.key});
+class fetchcustomer extends StatefulWidget {
+  const fetchcustomer({super.key});
 
   @override
-  State<FetchDataClass> createState() => _FetchDataClassState();
+  State<fetchcustomer> createState() => _FetchcustClassState();
 
 }
 
-class _FetchDataClassState extends State<FetchDataClass> {
+class _FetchcustClassState extends State<fetchcustomer> {
  List<String> images=[];
 Future getImage() async{
     final image=await ImagePicker().pickImage(source: ImageSource.gallery);
     if(image==null) return;
-    Uint8List imagebyte=await image.readAsBytes();
+    Uint8List imagebyte=await image!.readAsBytes();
     String _base64=base64.encode(imagebyte);
 
     print(_base64);
@@ -42,6 +42,7 @@ Future getImage() async{
   } File? _image;
  
      List vdetails=[];
+     
      //var name=vdetails['name'];
 
   @override
@@ -135,7 +136,7 @@ Future getImage() async{
           child: ListView.builder(
             
             itemCount:1,itemBuilder: (context, index)  {
-              //final data=vdetails[index] ;
+              final data=vdetails[index] ;
               
              //final item=vdetails[index] as Map;
     
@@ -167,7 +168,7 @@ Future getImage() async{
              child: TextFormField(
               controller: SearchController,
               decoration: InputDecoration(
-              hintText: "Search",
+              hintText: "Search by name,date and vehicle number",
                hintStyle: TextStyle(
                              color: FocusNodeSearch.hasFocus ? Colors.blue : Colors.black
                              ),
@@ -187,6 +188,12 @@ Future getImage() async{
            ),
            Padding(
              padding: const EdgeInsets.all(8.0),
+//              child:InkWell(child: Icon(Icons.search,color: Color.fromARGB(255, 193, 12, 12)),
+//                             onTap: (){  fetchData();
+//       //action code when clicked
+//                             print("The icon is clicked");
+//   },
+// )),
              child:  ElevatedButton(child: Text('Search',style: TextStyle(color: Colors.white),),onPressed: () =>{
                              fetchData(),
                              },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
@@ -194,200 +201,66 @@ Future getImage() async{
                         textStyle: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold)),),
-           ),
-               Padding(
-                     padding: const EdgeInsets.all(70.0),
-                     child: DataTable(
-                      showCheckboxColumn: false,
-                      
-                        border: TableBorder.all(width:1),
-                      columnSpacing:80,
-                      columns: const [
-                         DataColumn(label: Text('USERID',style: TextStyle(fontWeight: FontWeight.w900),),),
-                        DataColumn(label: Text('FIRST NAME',style: TextStyle(fontWeight: FontWeight.w900)),),
-                        DataColumn(label: Text('LAST NAME',style: TextStyle(fontWeight: FontWeight.w900)),),
-                        DataColumn(label: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('EMAIL',style: TextStyle(fontWeight: FontWeight.w900)),
-                        )),
-                        // DataColumn(label: Text('DATE')),
-                         DataColumn(label: Text('VNO',style: TextStyle(fontWeight: FontWeight.w900))),
-                        // DataColumn(label: Text('VMAKE')),
-                        // DataColumn(label: Text('TELEPHONE')),
-                        // DataColumn(label: Text('KMS')),
-                        // DataColumn(label: Text('E')),
-                      //DataColumn(label: Text('ITEM')),
-                        // DataColumn(label: Text('REGULAR')),
-                        // DataColumn(label: Text('IMAGES')),
-                        DataColumn(label: Text('Action',style: TextStyle(fontWeight: FontWeight.w900))),
-                        DataColumn(label: Text('Action',style: TextStyle(fontWeight: FontWeight.w900))),
-                        // DataColumn(label: Text('Action')),
-                            
-                                   
-                      ],
-                     
-                               
-                         
-                      rows: List.generate(
-                      
-                        vdetails.length,
-                        
-                        (index) {
-                          
-                          
-                          var data = vdetails[index];
-                          final id=data['id'].toString();
-                        // final name=data['name'].toString();
-                            
-                          return DataRow(
-                          
-                             onSelectChanged: (bool? selected) {
-                                   if (selected!) {
-                                        fetchbyId(id);
-                                   }
-                               },
-                            // onLongPress: () {
-                            //   fetchbyId(id);
-                            // },
-                            cells: <DataCell>[
-                              DataCell(  
-                                     CircleAvatar(radius:18.4,backgroundColor: Colors.black,child: Padding(
-                                                           padding: const EdgeInsets.all(8.0),
-                                                           
-                                                           child: Text('${index+1}',style: TextStyle(color: Colors.white)),
-                                                         )),
-                                   
-                                     ),
-                              
-                            DataCell(
-                              
-                              Text(data['name'].toString()),
-                            ),
-                            DataCell(
-                              Text(data['last'].toString()),
-                            ),
-                            DataCell(
-                              Text(data['email'].toString()),
-                            ),
-                      //        DataCell(
-                      //         Text(data['date'].toString()),
-                              
-                      //       ),
-                             DataCell(
-                              Text(data['Vno'].toString()),
-                              
-                            ),
-                      //        DataCell(
-                      //         Text(data['Vmake'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['tel'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['kms'].toString()),
-                              
-                      //       ),
-                      //        DataCell(
-                      //         Text(data['E'].toString()),
-                              
-                      //       ),
-                            //  DataCell(
-                            //   Text(data['item'].toString()),
-                              
-                            // ),
-                      //        DataCell(
-                      //         Text(data['regular'].toString()),
-                              
-                      //        ),
-                      //        DataCell(
-                             
-                      //          //image==null ?Image.memory('assets/images/mynew.jpg'):
-                               
-                      //  )
-                             
-                      
-                     
-                              
-                           
-                             DataCell(
-                              InkWell(
-  child: Icon(Icons.edit),
-  onTap: (){  navigateToEdit(data);
-      //action code when clicked
-      print("The icon is clicked");
-  },
-)
-                        //      ElevatedButton(child: Text('Edit'),onPressed: () =>{
-                        //       navigateToEdit(data),
-                        //      },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
-                       
-                        // textStyle: TextStyle(
-                        // fontSize: 12,
-                        // fontWeight: FontWeight.bold)),),
-                             
-                              
-                             ),
-                           
-                                
-                             
-                            DataCell( InkWell(
-                            child: Icon(Icons.delete,color: Color.fromARGB(255, 193, 12, 12)),
-                            onTap: (){   deleteById(id);
-      //action code when clicked
-                            print("The icon is clicked");
-  },
-)),
-                        //     (ElevatedButton(child: Text('Delete'),onPressed: () =>{
-                        //       deleteById(id)
-                        //      },
-                        //      style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 238, 79, 30),
-                       
-                        // textStyle: TextStyle(
-                        // fontSize: 12,
-                        // fontWeight: FontWeight.bold)),)
-                              
-                                
-                        //      DataCell(
-                        //      ElevatedButton(child: Text('View'),onPressed: (){
-                        //     fetchbyId(id);
-                        //      },
-                        //      style: ElevatedButton.styleFrom(backgroundColor: Colors.green,
-                       
-                        // textStyle: TextStyle(
-                        // fontSize: 12,
-                        // fontWeight: FontWeight.bold)),)
-                              
-                         
-                          ]
-                          );
-                          
-                        },
-                      ).toList(),
-                      showBottomBorder: true,
-                     
-                     
-                     ),
-                    
-                   ),
-                  //  Padding(
-                  //    padding: const EdgeInsets.all(8.0),
-                  //    child: ElevatedButton(onPressed: (){
-                  //     fetchData();
-                  //    }, child:Text("Back")),
-                  //  )
-             ]
-                 )
-               )
-               
-          );
+           
              
-            }
+               
+               
+               
+          
+             
+             ),
+             Padding(
+               padding: const EdgeInsets.symmetric(horizontal:50),
+               child: Card(color:Colors.black,
+                elevation: 2.9,
+                                      shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(2),
+                                      //side: const BorderSide(width: 1, color: Colors.black)
+                                      ),
+                                 
+                                       child:  Container(
+
+                                        
+               width:double.infinity,
+                       decoration:const BoxDecoration(
+                         gradient: LinearGradient(begin: Alignment.topCenter,colors:[Color.fromARGB(255, 241, 184, 61),Color(0xFFFF9800)],
+                         transform: GradientRotation(3.14/2))
+                       ),
+                                      child: Padding(
+                                        padding:EdgeInsets.symmetric(horizontal:30,vertical:100),
+                                        child: Column(
+                                          //var data = vdetails[index];
+                        children: [
+                          ListView.builder(
+            
+            itemCount:vdetails.length,itemBuilder: (context, index) {
+              final data=vdetails[index] ;
+                            
+                          
+                         
+                       return Row(
+                            children: [
+                              Text(data['name']),
+                          
+                          
+                           Text(data['last']),
+                            ]); 
+                         
+              } ) ]
+               )
+               )
+               )
+               ),
+             )
+               
+             ]    
           )
          )
-    )
-    
+    );
+            }
+          )
+       )
+       )
     );
               
              

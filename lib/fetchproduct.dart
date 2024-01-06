@@ -46,15 +46,15 @@ class _MyLabourState extends State<MyProduct> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchprod);}, child: Text("Product",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
+                    child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchprod);}, child: Text("Product",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,decorationColor: Colors.orange,),)),
                   ),
                  Padding(
                    padding: const EdgeInsets.all(8.0),
-                   child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchlabourobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,),)),
+                   child: TextButton(onPressed: (){Navigator.pushNamed(context, MyRoute.fetchlabourobj);}, child: Text("Labour",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,decorationColor: Colors.orange,),)),
                  ),
              Padding(
                padding: const EdgeInsets.all(7.0),
-               child: TextButton(onPressed:  (){Navigator.pushNamed(context,MyRoute.fetchdataobj);}, child: Text("Customer",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,))),
+               child: TextButton(onPressed:  (){Navigator.pushNamed(context,MyRoute.fetchdataobj);}, child: Text("Customer",style: TextStyle(fontWeight: FontWeight.w800,color: Colors.orange,fontSize: 25,decoration: TextDecoration.underline,decorationColor: Colors.orange,))),
              )
                 ],
               ),
@@ -85,7 +85,9 @@ class _MyLabourState extends State<MyProduct> {
         ),
         elevation: 0.00,
         backgroundColor: Colors.black,
-         
+           iconTheme: IconThemeData(
+    color: Colors.orange, 
+      ),
       ), 
         
       ),
@@ -132,31 +134,31 @@ class _MyLabourState extends State<MyProduct> {
                 alignment: FractionalOffset(0.5,0.8),
               ),
             ),
-             // height: 100,
-           Padding(
-             padding: const EdgeInsets.fromLTRB(250,20,250,0),
-             child: TextFormField(
-              controller: SearchController,
-              decoration: InputDecoration(
-              hintText: "Search",
-              border:OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-              suffixIcon: Icon(Icons.search)
+          //    // height: 100,
+          //  Padding(
+          //    padding: const EdgeInsets.fromLTRB(250,20,250,0),
+          //    child: TextFormField(
+          //     controller: SearchController,
+          //     decoration: InputDecoration(
+          //     hintText: "Search",
+          //     border:OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+          //     suffixIcon: Icon(Icons.search)
               
-             ),
-               //onChanged:fetchData(),
-               ),
+          //    ),
+          //      //onChanged:fetchData(),
+          //      ),
            
-           ),
-           Padding(
-             padding: const EdgeInsets.all(8.0),
-             child:  ElevatedButton(child: Text('Search'),onPressed: () =>{
-                             fetchProductData(),
-                             },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
+          //  ),
+          //  Padding(
+          //    padding: const EdgeInsets.all(8.0),
+          //    child:  ElevatedButton(child: Text('Search'),onPressed: () =>{
+          //                    fetchProductData(),
+          //                    },style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
                        
-                        textStyle: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold)),),
-           ),
+          //               textStyle: TextStyle(
+          //               fontSize: 12,
+          //               fontWeight: FontWeight.bold)),),
+          //  ),
                Padding(
                      padding: const EdgeInsets.all(100.0),
                      child: DataTable(
@@ -200,7 +202,7 @@ class _MyLabourState extends State<MyProduct> {
                                      CircleAvatar(radius:18.4,backgroundColor: Colors.black,child: Padding(
                                                            padding: const EdgeInsets.all(8.0),
                                                            
-                                                           child: Text('${index+1}'),
+                                                           child: Text('${index+1}',style: TextStyle(color: Colors.white),),
                                                          )),
                                    
                               ),
