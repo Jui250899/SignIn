@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         MyRoute.addlabourobj:(context) => MyLabourAdd(),
         MyRoute.fetchprod:(context) => MyProduct(),
         MyRoute.addprod:(context) => AddProduct(),
-       // MyRoute.fetchcustomer:(context) => fetchcustomer()
+       //MyRoute.fetchcustomer:(context) => fetchcustomer()
       
       }
       

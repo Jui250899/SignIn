@@ -452,7 +452,7 @@ class _MySignUpState extends State<MyAdd> {
                            
                            
                          
-                              const Divider(height: 0),
+                              const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue2,
                                  activeColor: Colors.black,
@@ -466,7 +466,7 @@ class _MySignUpState extends State<MyAdd> {
                                 
                                
                               ),
-                              const Divider(height: 0),
+                              const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue3,
                                  activeColor: Colors.black,
@@ -479,7 +479,7 @@ class _MySignUpState extends State<MyAdd> {
                                 
                                 
                               ),
-                                const Divider(height: 0),
+                                const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue4,
                                  activeColor: Colors.black,
@@ -492,8 +492,8 @@ class _MySignUpState extends State<MyAdd> {
                                 
                                 
                               ),
-                              const Divider(height: 0),
-                                const Divider(height: 0),
+                             // const Divider(height: 0),
+                                const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue5,
                                  activeColor: Colors.black,
@@ -506,7 +506,7 @@ class _MySignUpState extends State<MyAdd> {
                                 
                                 
                               ),
-                                const Divider(height: 0),
+                                const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue6,
                                  activeColor: Colors.black,
@@ -519,7 +519,7 @@ class _MySignUpState extends State<MyAdd> {
                                 
                                 
                               ),
-                                const Divider(height: 0),
+                                const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue7,
                                  activeColor: Colors.black,
@@ -532,7 +532,7 @@ class _MySignUpState extends State<MyAdd> {
                                 
                                 
                               ),
-                              const Divider(height: 0),
+                              const Divider(height: 0,color: Color.fromARGB(255, 199, 111, 3),),
                               CheckboxListTile(
                                 value: checkboxValue8,
                                  activeColor: Colors.black,
@@ -657,7 +657,7 @@ class _MySignUpState extends State<MyAdd> {
           regController.text.toString(),checkboxValue1,checkboxValue2,checkboxValue3,checkboxValue4,checkboxValue5,checkboxValue6
           ,checkboxValue7,checkboxValue8);},
           style: ElevatedButton.styleFrom(backgroundColor:Colors.black),
-           child: Text(isEdit?'Edit':'Add',style: TextStyle(fontSize: 15),))    
+           child: Text(isEdit?'Edit':'Add',style: TextStyle(fontSize: 15,color: Colors.white),))    
     
     //  ElevatedButton(onPressed:SubmitData(),
                         

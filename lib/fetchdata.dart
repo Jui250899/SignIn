@@ -333,7 +333,7 @@ Future getImage() async{
                                 
                              
                             DataCell( InkWell(
-                            child: Icon(Icons.delete,color: Color.fromARGB(255, 193, 12, 12)),
+                            child: Icon(Icons.delete,color: Color.fromARGB(255, 161, 1, 1)),
                             onTap: (){   deleteById(id);
       //action code when clicked
                             print("The icon is clicked");
